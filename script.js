@@ -46,7 +46,7 @@ const typingEl = document.getElementById('typingText');
 const phrases = [
     'Powering Industries with Reliable Energy',
     'Innovation · Performance · Trust',
-    'RAYS Industrial Batteries'
+    'RAYS Battery - Global Leader'
 ];
 let idx = 0,
     charIdx = 0,
@@ -126,6 +126,49 @@ document.addEventListener('click', (e) => {
     }
 });
 
+// ==================== CONTACT FORM ====================
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value.trim();
+    
+    if (!name || !email || !message) {
+        alert('Please fill in all required fields.');
+        return;
+    }
+    
+    // Email validation
+    if (!email.includes('@') || !email.includes('.')) {
+        alert('Please enter a valid email address.');
+        return;
+    }
+    
+    // Build WhatsApp message
+    const whatsappMessage = `Hello RAYS Battery!%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone || 'N/A'}%0A*Subject:* ${subject}%0A*Message:* ${message}`;
+    const whatsappUrl = `https://wa.me/917069159923?text=${whatsappMessage}`;
+    
+    // Open WhatsApp
+    window.open(whatsappUrl, '_blank');
+    
+    // Show success message
+    const btn = this.querySelector('.submit-btn');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
+    btn.style.background = '#25d366';
+    btn.style.boxShadow = '0 0 30px rgba(37, 211, 102, 0.3)';
+    
+    setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.style.background = '';
+        btn.style.boxShadow = '';
+        this.reset();
+    }, 3000);
+});
+
 // ==================== PARTICLE SYSTEM ====================
 const canvas = document.getElementById('particles-canvas');
 const ctx = canvas.getContext('2d');
@@ -175,7 +218,6 @@ function animateParticles() {
         p.update();
         p.draw();
     });
-    // Draw connections
     for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
             const dx = particles[i].x - particles[j].x;

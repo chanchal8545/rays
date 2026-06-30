@@ -1,10 +1,12 @@
 /* style.css */
-/* ==================== RESET & BASE ==================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+}
+html {
+    scroll-behavior: smooth;
 }
 body {
     background: #f6f8fc;
@@ -36,7 +38,6 @@ nav {
     -webkit-backdrop-filter: blur(16px) saturate(180%);
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     padding: 8px 0;
-    transition: 0.3s;
 }
 .nav-container {
     display: flex;
@@ -65,7 +66,7 @@ nav {
 }
 .nav-links {
     display: flex;
-    gap: 28px;
+    gap: 24px;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -75,11 +76,13 @@ nav {
     font-size: 0.95rem;
     color: #1e293b;
     transition: 0.2s;
-    cursor: pointer;
     padding: 6px 0;
 }
 .nav-links li:hover {
     color: #d32f2f;
+}
+.nav-links li a {
+    display: inline-block;
 }
 .nav-links li::after {
     content: '';
@@ -127,6 +130,7 @@ nav {
 .nav-quote {
     padding: 8px 22px !important;
     font-size: 0.9rem !important;
+    display: inline-block !important;
 }
 .hamburger {
     display: none;
@@ -140,7 +144,6 @@ nav {
     height: 3px;
     background: #0b2b4a;
     border-radius: 6px;
-    transition: 0.3s;
 }
 
 /* ==================== BUTTONS ==================== */
@@ -184,7 +187,7 @@ nav {
     max-width: 600px;
 }
 
-/* ==================== HERO SECTION ==================== */
+/* ==================== HERO ==================== */
 .hero {
     position: relative;
     width: 100%;
@@ -218,8 +221,6 @@ nav {
     z-index: 1;
     backdrop-filter: blur(1px);
 }
-
-/* ----- Hero Content ----- */
 .hero-content {
     position: relative;
     z-index: 5;
@@ -277,8 +278,6 @@ nav {
     padding: 14px 40px;
     font-size: 1.1rem;
 }
-
-/* ----- Center Battery ----- */
 .hero-battery-center {
     position: relative;
     z-index: 5;
@@ -344,8 +343,6 @@ nav {
     text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
     margin-top: 6px;
 }
-
-/* ----- Stats Row ----- */
 .stats-row {
     position: relative;
     z-index: 5;
@@ -463,7 +460,7 @@ section:nth-child(even) {
     background: #ffffff;
 }
 
-/* ----- Product Slider ----- */
+/* ==================== PRODUCT SLIDER ==================== */
 .slider-wrapper {
     overflow: hidden;
     margin: 40px 0;
@@ -478,7 +475,6 @@ section:nth-child(even) {
 .slide-card {
     min-width: 260px;
     background: #ffffff;
-    backdrop-filter: blur(4px);
     border-radius: 28px;
     padding: 32px 20px;
     border: 1px solid rgba(0, 0, 0, 0.04);
@@ -506,7 +502,7 @@ section:nth-child(even) {
     font-size: 0.9rem;
 }
 
-/* ----- About Grid ----- */
+/* ==================== ABOUT ==================== */
 .about-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -540,7 +536,154 @@ section:nth-child(even) {
     font-size: 0.9rem;
 }
 
-/* ----- Reveal Animation ----- */
+/* ==================== CONTACT ==================== */
+.contact-section {
+    background: #f6f8fc;
+}
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 50px;
+    margin-top: 40px;
+}
+.contact-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.contact-card {
+    background: #ffffff;
+    padding: 24px 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+    transition: 0.3s;
+}
+.contact-card:hover {
+    border-color: #d32f2f;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+}
+.contact-card i {
+    font-size: 2rem;
+    color: #d32f2f;
+    margin-bottom: 12px;
+}
+.contact-card h4 {
+    color: #0b2b4a;
+    margin-bottom: 6px;
+    font-size: 1rem;
+}
+.contact-card p {
+    color: #64748b;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+.contact-card a {
+    color: #d32f2f;
+    font-weight: 500;
+}
+.contact-card a:hover {
+    text-decoration: underline;
+}
+.whatsapp-card {
+    border-left: 4px solid #25d366;
+}
+.whatsapp-badge {
+    display: inline-block;
+    background: #25d36620;
+    color: #25d366;
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-top: 8px;
+}
+.whatsapp-badge i {
+    font-size: 0.8rem;
+    color: #25d366;
+}
+.social-card {
+    grid-column: 1 / -1;
+    text-align: center;
+}
+.social-icons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 10px;
+}
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    color: #0b2b4a;
+    transition: 0.3s;
+}
+.social-icons a:hover {
+    background: #d32f2f;
+    color: #fff;
+    transform: translateY(-4px);
+}
+
+/* ==================== CONTACT FORM ==================== */
+.contact-form-wrapper {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 28px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+}
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.form-group label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #0b2b4a;
+}
+.form-group label i {
+    color: #d32f2f;
+    margin-right: 8px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: 0.3s;
+    background: #f8fafc;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #d32f2f;
+    box-shadow: 0 0 0 4px rgba(211, 47, 47, 0.08);
+}
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* ==================== REVEAL ==================== */
 .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -559,12 +702,15 @@ footer {
 }
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 30px;
 }
 .footer-grid h4 {
     color: #0b2b4a;
     margin-bottom: 12px;
+}
+.footer-grid h4 i {
+    color: #d32f2f;
 }
 .footer-grid p,
 .footer-grid li {
@@ -576,6 +722,30 @@ footer {
     margin-right: 8px;
     color: #d32f2f;
 }
+.footer-grid a {
+    color: #d32f2f;
+}
+.footer-social {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.footer-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    color: #0b2b4a;
+    transition: 0.3s;
+}
+.footer-social a:hover {
+    background: #d32f2f;
+    color: #fff;
+    transform: translateY(-4px);
+}
 .footer-bottom {
     text-align: center;
     color: #94a3b8;
@@ -586,11 +756,17 @@ footer {
 }
 
 /* ==================== RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
 @media (max-width: 768px) {
     .hamburger { display: flex; }
     .nav-links {
         position: absolute;
-        top: 70px;
+        top: 68px;
         left: 0;
         width: 100%;
         background: rgba(255, 255, 255, 0.98);
@@ -628,6 +804,12 @@ footer {
     .section-title { font-size: 2rem; }
     .center-battery { width: 65px; height: 105px; }
     .charge-text { font-size: 1.2rem; }
+    .contact-info {
+        grid-template-columns: 1fr 1fr;
+    }
+    .contact-form-wrapper {
+        padding: 24px;
+    }
 }
 @media (max-width: 480px) {
     .logo img { height: 32px; }
@@ -643,5 +825,10 @@ footer {
     .stat-item { padding: 4px 12px; }
     .stat-number { font-size: 1.4rem; }
     .stat-label { font-size: 0.7rem; }
-    .center-battery .spark { font-size: 1.2rem; }
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
 }
