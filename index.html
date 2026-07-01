@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RAYS Battery - Industrial Battery Solutions</title>
+    <title>RAYS Global Energy - Premium EV Battery & Charger Solutions</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <!-- Google Fonts -->
@@ -11,80 +11,78 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+    <!-- ==================== PRELOADER ==================== -->
+    <div class="preloader" id="preloader">
+        <div class="loader-container">
+            <div class="loader-ring">
+                <div class="loader-ring-inner"></div>
+                <div class="loader-ring-inner-2"></div>
+                <div class="loader-center-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+            </div>
+            <p class="loader-text">RAYS Global Energy</p>
+            <p class="loader-sub">Powering Tomorrow</p>
+        </div>
+    </div>
+
     <!-- ==================== NAVIGATION ==================== -->
-    <nav>
+    <nav id="navbar">
         <div class="container nav-container">
             <div class="logo">
-                <img src="https://raysbattery.com/wp-content/uploads/2020/07/21.png" alt="RAYS Battery Logo" />
-                <span class="logo-text">RAYS <span>Battery</span></span>
+                <div class="logo-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <span class="logo-text">RAYS <span>Energy</span></span>
             </div>
             <div class="hamburger" id="hamburger">
                 <span></span><span></span><span></span>
             </div>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
+                <li><a href="#home" class="active">Home</a></li>
                 <li class="dropdown-parent">
-                    <a href="#about">About</a> <i class="fas fa-chevron-down" style="font-size:0.6rem;"></i>
+                    <a href="#about">About</a> <i class="fas fa-chevron-down dropdown-arrow"></i>
                     <ul class="dropdown">
                         <li><a href="#about">HDS Global Pte Ltd</a></li>
                         <li><a href="#about">Vision</a></li>
                         <li><a href="#about">CEO Message</a></li>
-                        <li><a href="#about">Production</a></li>
+                        <li><a href="#about">Production Facility</a></li>
                         <li><a href="#about">Certificates</a></li>
-                        <li><a href="#about">Environment</a></li>
                         <li><a href="#about">R&D</a></li>
-                        <li><a href="#about">Quality</a></li>
+                        <li><a href="#about">Quality Control</a></li>
                     </ul>
                 </li>
-                <li class="dropdown-parent">
-                    <a href="#products">Products</a> <i class="fas fa-chevron-down" style="font-size:0.6rem;"></i>
-                    <ul class="dropdown">
-                        <li><a href="#products">SP 12V Standard</a></li>
-                        <li><a href="#products">SP 2V Standard</a></li>
-                        <li><a href="#products">SPF Hybrid Gel</a></li>
-                        <li><a href="#products">HR High Rate</a></li>
-                        <li><a href="#products">FT Front Terminal</a></li>
-                        <li><a href="#products">EV Series</a></li>
-                        <li><a href="#products">LFP Lithium</a></li>
-                        <li><a href="#products">BMS Monitoring</a></li>
-                    </ul>
-                </li>
-                <li><a href="#support">Technical</a></li>
-                <li><a href="#news">News</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#videos">Videos</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="#contact" class="btn glow-btn nav-quote">Quote</a></li>
+                <li><a href="#contact" class="btn nav-quote">Get Quote</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- ==================== HERO SECTION ==================== -->
     <section class="hero" id="home">
-        <div class="hero-bg-image"></div>
+        <!-- Background Video -->
+        <video class="hero-bg-video" autoplay muted loop playsinline>
+            <source src="assets/video/heri.mp4" type="video/mp4" />
+            <img src="https://images.pexels.com/photos/414837/pexels-photo-414837.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Hero Background" />
+        </video>
         <div class="hero-overlay"></div>
         <canvas id="particles-canvas"></canvas>
-        <div class="rotating-cells">
-            <i class="fas fa-bolt"></i><i class="fas fa-bolt"></i>
-            <i class="fas fa-bolt"></i><i class="fas fa-bolt"></i>
-        </div>
-        <div class="floating-icons">
-            <div class="floating-icon"><i class="fas fa-bolt"></i></div>
-            <div class="floating-icon"><i class="fas fa-battery-full"></i></div>
-            <div class="floating-icon"><i class="fas fa-bolt"></i></div>
-            <div class="floating-icon"><i class="fas fa-battery-three-quarters"></i></div>
-            <div class="floating-icon"><i class="fas fa-bolt"></i></div>
-        </div>
-        <div class="glow-lines">
-            <div class="glow-line"></div>
-            <div class="glow-line"></div>
-            <div class="glow-line"></div>
-        </div>
 
         <div class="hero-content">
             <div class="hero-text">
-                <h1 class="hero-title">RAYS <span>Industrial</span> Batteries</h1>
-                <div class="typing-text" id="typingText">Powering Industries with Reliable Energy</div>
-                <p class="hero-description">Advanced battery solutions for industrial excellence</p>
-                <a href="#contact" class="btn hero-btn glow-btn">Get a Quote</a>
+                <span class="hero-badge">RAYS Global Energy</span>
+                <h1 class="hero-title">Powering <span>Tomorrow's</span> Mobility</h1>
+                <div class="typing-wrapper">
+                    <span class="typing-text" id="typingText">Innovative EV Battery Solutions</span>
+                </div>
+                <p class="hero-description">Premium Lithium Battery & Charger Technology for a Sustainable Future</p>
+                <div class="hero-buttons">
+                    <a href="#products" class="btn hero-btn primary-btn">Explore Products <i class="fas fa-arrow-right"></i></a>
+                    <a href="#contact" class="btn hero-btn secondary-btn">Get a Quote <i class="fas fa-chevron-right"></i></a>
+                </div>
             </div>
         </div>
 
@@ -102,47 +100,289 @@
         </div>
 
         <div class="stats-row">
-            <div class="stat-item"><div class="stat-number" data-target="20">0</div><div class="stat-label">Years</div></div>
-            <div class="stat-item"><div class="stat-number" data-target="5000">0</div><div class="stat-label">Clients</div></div>
-            <div class="stat-item"><div class="stat-number" data-target="50">0</div><div class="stat-label">Countries</div></div>
+            <div class="stat-item"><div class="stat-number" data-target="20">0</div><div class="stat-label">Years Experience</div></div>
+            <div class="stat-item"><div class="stat-number" data-target="5000">0</div><div class="stat-label">Global Clients</div></div>
+            <div class="stat-item"><div class="stat-number" data-target="50">0</div><div class="stat-label">Countries Served</div></div>
+        </div>
+
+        <div class="scroll-indicator">
+            <span>Scroll to Explore</span>
+            <div class="scroll-line"><span></span></div>
         </div>
     </section>
 
-    <!-- ==================== PRODUCT SLIDER ==================== -->
-    <section id="products">
+    <!-- ==================== WHY CHOOSE US ==================== -->
+    <section class="why-section">
         <div class="container">
-            <h2 class="section-title reveal">Our <span>Products</span></h2>
-            <p class="section-sub reveal">Premium battery solutions for every industrial need</p>
-            <div class="slider-wrapper reveal">
-                <div class="slider-track" id="sliderTrack">
-                    <div class="slide-card"><i class="fas fa-bolt"></i><h4>SP 12V Standard</h4><p>High reliability</p></div>
-                    <div class="slide-card"><i class="fas fa-bolt"></i><h4>SP 2V Standard</h4><p>Heavy duty</p></div>
-                    <div class="slide-card"><i class="fas fa-bolt"></i><h4>SPF Hybrid Gel</h4><p>Deep cycle</p></div>
-                    <div class="slide-card"><i class="fas fa-bolt"></i><h4>HR High Rate</h4><p>Fast discharge</p></div>
-                    <div class="slide-card"><i class="fas fa-bolt"></i><h4>FT Front Terminal</h4><p>Space saving</p></div>
-                    <div class="slide-card"><i class="fas fa-bolt"></i><h4>EV Series</h4><p>Electric vehicles</p></div>
-                    <div class="slide-card"><i class="fas fa-bolt"></i><h4>LFP Lithium</h4><p>Light &amp; safe</p></div>
-                    <div class="slide-card"><i class="fas fa-bolt"></i><h4>BMS Monitoring</h4><p>Smart control</p></div>
-                    <div class="slide-card"><i class="fas fa-bolt"></i><h4>SP 12V Standard</h4><p>High reliability</p></div>
-                    <div class="slide-card"><i class="fas fa-bolt"></i><h4>SP 2V Standard</h4><p>Heavy duty</p></div>
+            <div class="section-header reveal">
+                <span class="section-tag">Why Choose RAYS</span>
+                <h2 class="section-title">Engineered for <span>Excellence</span></h2>
+                <p class="section-sub">Premium EV battery technology that delivers exceptional performance, safety, and reliability</p>
+            </div>
+            <div class="why-grid reveal">
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Advanced Technology</h3>
+                    <p>State-of-the-art lithium battery technology with superior energy density and longevity.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Uncompromised Safety</h3>
+                    <p>Multi-layer protection systems with international safety certifications and testing.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>Sustainable Energy</h3>
+                    <p>Eco-friendly battery solutions supporting global green energy transition.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-globe"></i></div>
+                    <h3>Global Reach</h3>
+                    <p>Serving 50+ countries with reliable EV battery and charger solutions worldwide.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==================== ABOUT ==================== -->
-    <section id="about">
+    <!-- ==================== PRODUCTS SECTION ==================== -->
+    <section id="products" class="products-section">
         <div class="container">
-            <h2 class="section-title reveal">About <span>RAYS</span></h2>
+            <div class="section-header reveal">
+                <span class="section-tag">Our Products</span>
+                <h2 class="section-title">Premium EV <span>Solutions</span></h2>
+                <p class="section-sub">Engineered for performance, built for the future</p>
+            </div>
+            
+            <div class="ev-grid reveal">
+                <!-- EV Charger -->
+                <div class="ev-card">
+                    <div class="ev-image-wrapper">
+                        <img src="assets/images/charger1.jpeg" alt="Smart EV Charger" />
+                        <div class="ev-image-overlay">
+                            <i class="fas fa-expand-alt"></i>
+                        </div>
+                        <div class="ev-badge-top">New</div>
+                    </div>
+                    <div class="ev-content">
+                        <span class="ev-badge">EV Charger</span>
+                        <h3>Smart EV Charger</h3>
+                        <p>Intelligent charging with battery care technology and smart control features.</p>
+                        <ul class="ev-specs">
+                            <li><i class="fas fa-bolt"></i> 3kW - 22kW</li>
+                            <li><i class="fas fa-microchip"></i> Smart Control</li>
+                            <li><i class="fas fa-shield-alt"></i> Safety Certified</li>
+                        </ul>
+                        <a href="#contact" class="btn small-btn">Inquire Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- 12V 32Ah Battery -->
+                <div class="ev-card">
+                    <div class="ev-image-wrapper">
+                        <img src="assets/images/battery1.jpeg" alt="12V 32Ah Battery" />
+                        <div class="ev-image-overlay">
+                            <i class="fas fa-expand-alt"></i>
+                        </div>
+                    </div>
+                    <div class="ev-content">
+                        <span class="ev-badge">Battery</span>
+                        <h3>12V 32Ah Battery</h3>
+                        <p>High-performance battery with deep-cycle capability and extended lifespan.</p>
+                        <ul class="ev-specs">
+                            <li><i class="fas fa-bolt"></i> 12V System</li>
+                            <li><i class="fas fa-battery-full"></i> 32Ah Capacity</li>
+                            <li><i class="fas fa-clock"></i> Long Cycle Life</li>
+                        </ul>
+                        <a href="#contact" class="btn small-btn">Inquire Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- 12V 34Ah Battery -->
+                <div class="ev-card">
+                    <div class="ev-image-wrapper">
+                        <img src="assets/images/battery2.jpeg" alt="12V 34Ah Battery" />
+                        <div class="ev-image-overlay">
+                            <i class="fas fa-expand-alt"></i>
+                        </div>
+                    </div>
+                    <div class="ev-content">
+                        <span class="ev-badge">Battery</span>
+                        <h3>12V 34Ah Battery</h3>
+                        <p>Enhanced capacity battery with superior reliability and performance.</p>
+                        <ul class="ev-specs">
+                            <li><i class="fas fa-bolt"></i> 12V System</li>
+                            <li><i class="fas fa-battery-full"></i> 34Ah Capacity</li>
+                            <li><i class="fas fa-check-circle"></i> Premium Quality</li>
+                        </ul>
+                        <a href="#contact" class="btn small-btn">Inquire Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== GALLERY SECTION ==================== -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Gallery</span>
+                <h2 class="section-title">Product <span>Showcase</span></h2>
+                <p class="section-sub">Experience the quality and craftsmanship of our EV solutions</p>
+            </div>
+            
+            <div class="gallery-grid reveal">
+                <div class="gallery-item">
+                    <img src="assets/images/battery3.jpeg" alt="12V 32Ah Battery" />
+                    <div class="gallery-overlay">
+                        <h4>12V 32Ah Battery</h4>
+                        <p>Deep-cycle performance</p>
+                        <span class="gallery-btn"><i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/battery1.jpeg" alt="12V 34Ah Battery" />
+                    <div class="gallery-overlay">
+                        <h4>12V 34Ah Battery</h4>
+                        <p>Extended cycle life</p>
+                        <span class="gallery-btn"><i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+                <div class="gallery-item gallery-item-large">
+                    <img src="assets/images/charger2.jpeg" alt="EV Charger" />
+                    <div class="gallery-overlay">
+                        <h4>Smart EV Charger</h4>
+                        <p>Intelligent charging technology</p>
+                        <span class="gallery-btn"><i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== VIDEO SHOWCASE ==================== -->
+    <section id="videos" class="videos-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Video Showcase</span>
+                <h2 class="section-title">See Our <span>Technology</span></h2>
+                <p class="section-sub">Watch our EV battery and charger solutions in action</p>
+            </div>
+            
+            <div class="videos-grid reveal">
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <video muted loop playsinline>
+                            <source src="assets/video/v2.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-overlay">
+                            <div class="video-play-btn"><i class="fas fa-play"></i></div>
+                            <span>EV Battery Technology</span>
+                        </div>
+                    </div>
+                    <div class="video-content">
+                        <h4><i class="fas fa-bolt"></i> Advanced Battery Technology</h4>
+                        <p>Premium lithium battery solutions for electric vehicles</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <video muted loop playsinline>
+                            <source src="assets/video/v1.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-overlay">
+                            <div class="video-play-btn"><i class="fas fa-play"></i></div>
+                            <span>Smart EV Charger</span>
+                        </div>
+                    </div>
+                    <div class="video-content">
+                        <h4><i class="fas fa-bolt"></i> Smart Charging Solutions</h4>
+                        <p>Intelligent EV chargers with advanced safety features</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT SECTION ==================== -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">About RAYS</span>
+                <h2 class="section-title">Powering the <span>Future</span></h2>
+                <p class="section-sub">Global leader in advanced battery technology and energy solutions</p>
+            </div>
+            
             <div class="about-grid reveal">
-                <div class="about-card"><i class="fas fa-globe"></i><h4>HDS Global Pte Ltd</h4><p>Singapore HQ</p></div>
-                <div class="about-card"><i class="fas fa-eye"></i><h4>Vision</h4><p>Global energy leader</p></div>
-                <div class="about-card"><i class="fas fa-user-tie"></i><h4>CEO Message</h4><p>Innovation &amp; trust</p></div>
-                <div class="about-card"><i class="fas fa-industry"></i><h4>Production</h4><p>State-of-art facility</p></div>
-                <div class="about-card"><i class="fas fa-certificate"></i><h4>Certificates</h4><p>ISO, CE, UL</p></div>
-                <div class="about-card"><i class="fas fa-leaf"></i><h4>Environment</h4><p>Green energy</p></div>
-                <div class="about-card"><i class="fas fa-flask"></i><h4>R&amp;D</h4><p>Continuous innovation</p></div>
-                <div class="about-card"><i class="fas fa-check-double"></i><h4>Quality Control</h4><p>Zero defect</p></div>
+                <div class="about-card">
+                    <div class="about-card-icon"><i class="fas fa-globe-americas"></i></div>
+                    <h4>Global Presence</h4>
+                    <p>Operating in 50+ countries with offices in Singapore and India</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-card-icon"><i class="fas fa-flask"></i></div>
+                    <h4>Innovation Hub</h4>
+                    <p>Continuous R&D for cutting-edge battery technology</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-card-icon"><i class="fas fa-certificate"></i></div>
+                    <h4>Certified Quality</h4>
+                    <p>ISO, CE, UL certified products with rigorous testing</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-card-icon"><i class="fas fa-leaf"></i></div>
+                    <h4>Green Energy</h4>
+                    <p>Eco-friendly solutions for a sustainable tomorrow</p>
+                </div>
+            </div>
+            
+            <div class="about-story reveal">
+                <div class="about-story-content">
+                    <h3>Our <span>Journey</span></h3>
+                    <p>RAYS Global Energy has been at the forefront of battery technology innovation for over 20 years. Our commitment to quality, safety, and sustainability has made us a trusted partner for EV manufacturers, energy companies, and consumers worldwide.</p>
+                    <p>From our headquarters in Singapore to our global operations, we continue to push the boundaries of what's possible in energy storage and charging technology.</p>
+                    <a href="#contact" class="btn">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="about-story-image">
+                    <div class="about-image-placeholder">
+                        <i class="fas fa-bolt"></i>
+                        <span>20+ Years of Excellence</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-features reveal">
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-bolt"></i>
+                        <div>
+                            <h4>Super Deepcycle</h4>
+                            <p>Superior deep-cycle performance for demanding applications</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-bolt"></i>
+                        <div>
+                            <h4>High Discharge</h4>
+                            <p>Large current discharge capability for high-performance EVs</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-bolt"></i>
+                        <div>
+                            <h4>Safety First</h4>
+                            <p>Multi-layer safety systems with international certifications</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-bolt"></i>
+                        <div>
+                            <h4>Eco-Friendly</h4>
+                            <p>Environmentally conscious design and manufacturing</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -150,29 +390,37 @@
     <!-- ==================== CONTACT SECTION ==================== -->
     <section id="contact" class="contact-section">
         <div class="container">
-            <h2 class="section-title reveal">Get In <span>Touch</span></h2>
-            <p class="section-sub reveal">We'd love to hear from you. Reach out for any inquiries.</p>
+            <div class="section-header reveal">
+                <span class="section-tag">Contact Us</span>
+                <h2 class="section-title">Get In <span>Touch</span></h2>
+                <p class="section-sub">Let's discuss how we can power your future with premium EV solutions</p>
+            </div>
             
             <div class="contact-grid reveal">
-                <!-- Contact Info -->
                 <div class="contact-info">
                     <div class="contact-card">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <h4>Address</h4>
-                        <p>RAYS Battery Industries<br />Singapore · Global Operations</p>
+                        <div class="contact-card-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <h4>India Office</h4>
+                        <p>718 BHAVESHWAR ARCADE, ANNEX LBS MARG,<br />OPPOSITE SHREYAS CINEMA, GHATKOPAR (WEST),<br />MUMBAI 400086</p>
                     </div>
                     <div class="contact-card">
-                        <i class="fas fa-envelope"></i>
+                        <div class="contact-card-icon"><i class="fas fa-map-pin"></i></div>
+                        <h4>Singapore Office</h4>
+                        <p>10, Anson Road, #22-02,<br />International Plaza,<br />Singapore - 079903</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
                         <h4>Email</h4>
                         <p><a href="mailto:sales@raysbattery.com">sales@raysbattery.com</a></p>
                     </div>
                     <div class="contact-card">
-                        <i class="fas fa-phone"></i>
+                        <div class="contact-card-icon"><i class="fas fa-phone"></i></div>
                         <h4>Phone</h4>
-                        <p><a href="tel:+917069159923">+91 7069 159 923</a></p>
+                        <p><a href="tel:+917400405876">+91 74004 05876</a></p>
+                        <p><a href="tel:+6598739920">+65 9873 9920</a></p>
                     </div>
                     <div class="contact-card whatsapp-card">
-                        <i class="fab fa-whatsapp"></i>
+                        <div class="contact-card-icon"><i class="fab fa-whatsapp"></i></div>
                         <h4>WhatsApp</h4>
                         <p><a href="https://wa.me/917069159923" target="_blank">+91 7069 159 923</a></p>
                         <span class="whatsapp-badge"><i class="fas fa-check-circle"></i> Available 24/7</span>
@@ -188,36 +436,39 @@
                     </div>
                 </div>
 
-                <!-- Contact Form -->
                 <div class="contact-form-wrapper">
                     <form id="contactForm" class="contact-form">
-                        <div class="form-group">
-                            <label for="name"><i class="fas fa-user"></i> Full Name</label>
-                            <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name"><i class="fas fa-user"></i> Full Name</label>
+                                <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="Enter your email" required />
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
-                            <input type="email" id="email" name="email" placeholder="Enter your email" required />
-                        </div>
-                        <div class="form-group">
-                            <label for="phone"><i class="fas fa-phone"></i> Phone Number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" />
-                        </div>
-                        <div class="form-group">
-                            <label for="subject"><i class="fas fa-tag"></i> Subject</label>
-                            <select id="subject" name="subject">
-                                <option value="general">General Inquiry</option>
-                                <option value="products">Product Information</option>
-                                <option value="quote">Request a Quote</option>
-                                <option value="support">Technical Support</option>
-                                <option value="partnership">Partnership</option>
-                            </select>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone"><i class="fas fa-phone"></i> Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" />
+                            </div>
+                            <div class="form-group">
+                                <label for="subject"><i class="fas fa-tag"></i> Subject</label>
+                                <select id="subject" name="subject">
+                                    <option value="general">General Inquiry</option>
+                                    <option value="ev-battery">EV Battery</option>
+                                    <option value="ev-charger">EV Charger</option>
+                                    <option value="quote">Request a Quote</option>
+                                    <option value="support">Technical Support</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="message"><i class="fas fa-comment"></i> Message</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Tell us about your requirements..." required></textarea>
+                            <textarea id="message" name="message" rows="4" placeholder="Tell us about your requirements..." required></textarea>
                         </div>
-                        <button type="submit" class="btn submit-btn glow-btn">
+                        <button type="submit" class="btn submit-btn">
                             <i class="fas fa-paper-plane"></i> Send Message
                         </button>
                     </form>
@@ -229,33 +480,12 @@
     <!-- ==================== FOOTER ==================== -->
     <footer>
         <div class="container footer-grid">
-            <div>
-                <h4><i class="fas fa-bolt"></i> RAYS Battery</h4>
-                <p><i class="fas fa-map-pin"></i> Singapore · Global Operations</p>
-                <p><i class="fas fa-envelope"></i> sales@raysbattery.com</p>
-                <p><i class="fas fa-phone"></i> +91 7069 159 923</p>
-                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/917069159923" target="_blank">WhatsApp 24/7</a></p>
-            </div>
-            <div>
-                <h4>Products</h4>
-                <ul>
-                    <li>Standard Series</li>
-                    <li>Gel &amp; Lithium</li>
-                    <li>EV &amp; BMS</li>
-                    <li>High Rate Series</li>
-                </ul>
-            </div>
-            <div>
-                <h4>Support</h4>
-                <ul>
-                    <li>Technical Support</li>
-                    <li>Downloads</li>
-                    <li>Warranty</li>
-                    <li>FAQs</li>
-                </ul>
-            </div>
-            <div>
-                <h4>Connect</h4>
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <i class="fas fa-bolt"></i>
+                    <span>RAYS <span>Energy</span></span>
+                </div>
+                <p>Premium EV battery and charger solutions for a sustainable future.</p>
                 <div class="footer-social">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -263,10 +493,42 @@
                     <a href="#"><i class="fab fa-youtube"></i></a>
                     <a href="#"><i class="fab fa-whatsapp"></i></a>
                 </div>
-                <p style="margin-top:12px;"><i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM</p>
+            </div>
+            <div>
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="#">EV Lithium Battery</a></li>
+                    <li><a href="#">LFP EV Battery</a></li>
+                    <li><a href="#">Smart EV Charger</a></li>
+                    <li><a href="#">BMS Systems</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Technical Support</a></li>
+                    <li><a href="#">Downloads</a></li>
+                    <li><a href="#">Warranty</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
             </div>
         </div>
-        <div class="footer-bottom">&copy; 2026 RAYS Battery Industries. All Rights Reserved.</div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 RAYS Global Energy Pvt Ltd. All Rights Reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
     </footer>
 
     <script src="script.js"></script>
