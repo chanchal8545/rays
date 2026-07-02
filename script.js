@@ -294,3 +294,30 @@ window.addEventListener('resize', () => {
     resizeCanvas();
     initParticles(80);
 });
+// ==================== FORCE VIDEO AUTOPLAY ====================
+document.addEventListener('DOMContentLoaded', function() {
+    const videos = document.querySelectorAll('.video-wrapper video');
+    
+    videos.forEach(video => {
+        // Play video on user interaction if autoplay fails
+        video.play().catch(function(error) {
+            console.log('Autoplay prevented, waiting for user interaction');
+        });
+        
+        // Ensure video loops
+        video.addEventListener('ended', function() {
+            this.currentTime = 0;
+            this.play();
+        });
+    });
+});
+
+// Also force play on any click (for mobile)
+document.addEventListener('click', function() {
+    const videos = document.querySelectorAll('.video-wrapper video');
+    videos.forEach(video => {
+        if (video.paused) {
+            video.play().catch(e => console.log('Play failed'));
+        }
+    });
+}, { once: false });
