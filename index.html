@@ -41,15 +41,15 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home" class="active">Home</a></li>
                 <li class="dropdown-parent">
-                    <a href="#about">About</a> <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    <a href="about.html">About</a> <i class="fas fa-chevron-down dropdown-arrow"></i>
                     <ul class="dropdown">
-                        <li><a href="#about">HDS Global Pte Ltd</a></li>
-                        <li><a href="#about">Vision</a></li>
-                        <li><a href="#about">CEO Message</a></li>
-                        <li><a href="#about">Production Facility</a></li>
-                        <li><a href="#about">Certificates</a></li>
-                        <li><a href="#about">R&D</a></li>
-                        <li><a href="#about">Quality Control</a></li>
+                        <li><a href="about.html#story">Our Story</a></li>
+                        <li><a href="about.html#mission">Mission & Vision</a></li>
+                        <li><a href="about.html#leadership">Leadership</a></li>
+                        <li><a href="about.html#certifications">Certifications</a></li>
+                        <li><a href="about.html#facility">Production Facility</a></li>
+                        <li><a href="about.html#rd">R&D</a></li>
+                        <li><a href="about.html#quality">Quality Control</a></li>
                     </ul>
                 </li>
                 <li><a href="#products">Products</a></li>
@@ -63,7 +63,7 @@
 
     <!-- ==================== HERO SECTION ==================== -->
     <section class="hero" id="home">
-        <!-- Background Video -->
+        <!-- Background Video - AUTOPLAY LOOP -->
         <video class="hero-bg-video" autoplay muted loop playsinline>
             <source src="assets/video/heri.mp4" type="video/mp4" />
             <img src="https://images.pexels.com/photos/414837/pexels-photo-414837.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Hero Background" />
@@ -81,7 +81,7 @@
                 <p class="hero-description">Premium Lithium Battery & Charger Technology for a Sustainable Future</p>
                 <div class="hero-buttons">
                     <a href="#products" class="btn hero-btn primary-btn">Explore Products <i class="fas fa-arrow-right"></i></a>
-                    <a href="#contact" class="btn hero-btn secondary-btn">Get a Quote <i class="fas fa-chevron-right"></i></a>
+                    <a href="about.html" class="btn hero-btn secondary-btn">Learn More <i class="fas fa-chevron-right"></i></a>
                 </div>
             </div>
         </div>
@@ -259,7 +259,7 @@
         </div>
     </section>
 
-    <!-- ==================== VIDEO SHOWCASE ==================== -->
+    <!-- ==================== VIDEO SHOWCASE - AUTOPLAY LOOP ==================== -->
     <section id="videos" class="videos-section">
         <div class="container">
             <div class="section-header reveal">
@@ -271,7 +271,8 @@
             <div class="videos-grid reveal">
                 <div class="video-card">
                     <div class="video-wrapper">
-                        <video muted loop playsinline>
+                        <!-- EV Battery Video - AUTOPLAY LOOP -->
+                        <video autoplay muted loop playsinline>
                             <source src="assets/video/v2.mp4" type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>
@@ -287,7 +288,8 @@
                 </div>
                 <div class="video-card">
                     <div class="video-wrapper">
-                        <video muted loop playsinline>
+                        <!-- EV Charger Video - AUTOPLAY LOOP -->
+                        <video autoplay muted loop playsinline>
                             <source src="assets/video/v1.mp4" type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>
@@ -342,7 +344,7 @@
                     <h3>Our <span>Journey</span></h3>
                     <p>RAYS Global Energy has been at the forefront of battery technology innovation for over 20 years. Our commitment to quality, safety, and sustainability has made us a trusted partner for EV manufacturers, energy companies, and consumers worldwide.</p>
                     <p>From our headquarters in Singapore to our global operations, we continue to push the boundaries of what's possible in energy storage and charging technology.</p>
-                    <a href="#contact" class="btn">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <a href="about.html" class="btn">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="about-story-image">
                     <div class="about-image-placeholder">
@@ -497,16 +499,16 @@
             <div>
                 <h4>Products</h4>
                 <ul>
-                    <li><a href="#">EV Lithium Battery</a></li>
-                    <li><a href="#">LFP EV Battery</a></li>
-                    <li><a href="#">Smart EV Charger</a></li>
-                    <li><a href="#">BMS Systems</a></li>
+                    <li><a href="#products">EV Lithium Battery</a></li>
+                    <li><a href="#products">LFP EV Battery</a></li>
+                    <li><a href="#products">Smart EV Charger</a></li>
+                    <li><a href="#products">BMS Systems</a></li>
                 </ul>
             </div>
             <div>
                 <h4>Company</h4>
                 <ul>
-                    <li><a href="#about">About Us</a></li>
+                    <li><a href="about.html">About Us</a></li>
                     <li><a href="#">Careers</a></li>
                     <li><a href="#">News</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -532,5 +534,45 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // ==================== VIDEO AUTOPLAY LOOP FORCE FIX ====================
+        document.addEventListener('DOMContentLoaded', function() {
+            // Select ALL videos on the page
+            const allVideos = document.querySelectorAll('video');
+            
+            allVideos.forEach(video => {
+                // Ensure all attributes are set
+                video.setAttribute('autoplay', '');
+                video.setAttribute('muted', '');
+                video.setAttribute('loop', '');
+                video.setAttribute('playsinline', '');
+                
+                // Force play
+                video.play().catch(() => {
+                    // If autoplay fails, play on user interaction
+                    document.addEventListener('click', function playVideo() {
+                        video.play();
+                        document.removeEventListener('click', playVideo);
+                    }, { once: true });
+                });
+                
+                // Ensure loop on ended
+                video.addEventListener('ended', function() {
+                    this.currentTime = 0;
+                    this.play();
+                });
+            });
+        });
+
+        // Force play on any click (for mobile)
+        document.addEventListener('click', function() {
+            const videos = document.querySelectorAll('video');
+            videos.forEach(video => {
+                if (video.paused) {
+                    video.play().catch(e => console.log('Play failed'));
+                }
+            });
+        }, { once: false });
+    </script>
 </body>
 </html>

@@ -1,0 +1,2359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - RAYS Global Energy | Premium EV Battery & Charger Solutions</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background: #f6f8fc;
+            color: #1e293b;
+            overflow-x: hidden;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* ===== PRELOADER ===== */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0b1a2e;
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        .preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .loader-container {
+            text-align: center;
+        }
+        .loader-ring {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+        .loader-ring-inner {
+            width: 80px;
+            height: 80px;
+            border: 3px solid transparent;
+            border-top-color: #00d4ff;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        .loader-ring-inner-2 {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            width: 64px;
+            height: 64px;
+            border: 3px solid transparent;
+            border-bottom-color: #0066ff;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite reverse;
+        }
+        .loader-center-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #00d4ff;
+            font-size: 1.8rem;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .loader-text {
+            color: #fff;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #00d4ff, #0066ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .loader-sub {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        /* ===== NAVBAR ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            padding: 12px 0;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
+        }
+        nav:not(.scrolled) {
+            background: rgba(11, 26, 46, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, #00d4ff, #0066ff);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        .logo:hover .logo-icon {
+            transform: scale(1.05) rotate(-5deg);
+        }
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+        nav.scrolled .logo-text {
+            color: #0b1a2e;
+        }
+        .logo-text span {
+            color: #00d4ff;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .nav-links li {
+            position: relative;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.85);
+            transition: color 0.3s ease;
+            padding: 4px 0;
+            cursor: pointer;
+        }
+        nav.scrolled .nav-links li {
+            color: #1e293b;
+        }
+        .nav-links li a {
+            display: inline-block;
+            padding: 4px 0;
+        }
+        .nav-links li::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: linear-gradient(90deg, #00d4ff, #0066ff);
+            transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-radius: 4px;
+        }
+        .nav-links li:hover::after,
+        .nav-links li.active::after {
+            width: 100%;
+        }
+        .nav-links li:hover {
+            color: #00d4ff;
+        }
+        .nav-links .dropdown {
+            display: none;
+            position: absolute;
+            top: 34px;
+            left: -16px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(16px);
+            border-radius: 16px;
+            padding: 10px 0;
+            min-width: 220px;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
+        }
+        .nav-links .dropdown-parent:hover .dropdown {
+            display: block;
+            animation: dropdownFade 0.3s ease;
+        }
+        @keyframes dropdownFade {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .dropdown li {
+            padding: 8px 24px;
+            color: #1e293b;
+            font-weight: 400;
+            font-size: 0.85rem;
+            border-left: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .dropdown li:hover {
+            background: #f0f4f8;
+            color: #0066ff;
+            border-left-color: #0066ff;
+        }
+        .dropdown li::after {
+            display: none;
+        }
+        .dropdown-arrow {
+            font-size: 0.6rem;
+            margin-left: 4px;
+            transition: transform 0.3s ease;
+        }
+        .dropdown-parent:hover .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+        .nav-quote {
+            padding: 8px 24px !important;
+            font-size: 0.85rem !important;
+            background: linear-gradient(135deg, #00d4ff, #0066ff) !important;
+            color: #fff !important;
+            border-radius: 60px !important;
+            box-shadow: 0 4px 20px rgba(0, 102, 255, 0.3) !important;
+            transition: all 0.3s ease !important;
+        }
+        .nav-quote:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 30px rgba(0, 102, 255, 0.4) !important;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+        }
+        .hamburger span {
+            width: 28px;
+            height: 2.5px;
+            background: #fff;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+        nav.scrolled .hamburger span {
+            background: #0b1a2e;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #00d4ff, #0066ff);
+            color: #fff;
+            padding: 12px 32px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(0, 102, 255, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            transition: left 0.6s ease;
+        }
+        .btn:hover::before {
+            left: 100%;
+        }
+        .btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 32px rgba(0, 102, 255, 0.35);
+        }
+        .btn i {
+            transition: transform 0.3s ease;
+        }
+        .btn:hover i {
+            transform: translateX(4px);
+        }
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+            color: #0b1a2e;
+        }
+        .section-title span {
+            background: linear-gradient(135deg, #00d4ff, #0066ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .section-sub {
+            color: #64748b;
+            font-size: 1.1rem;
+            max-width: 600px;
+            line-height: 1.7;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-tag {
+            display: inline-block;
+            background: rgba(0, 102, 255, 0.08);
+            color: #0066ff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 18px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        /* ===== REVEAL ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== ABOUT HERO ===== */
+        .about-hero {
+            position: relative;
+            width: 100%;
+            min-height: 70vh;
+            padding: 140px 0 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #0b1a2e;
+        }
+        .about-hero-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #0b1a2e 0%, #1a2d4a 50%, #0b1a2e 100%);
+            z-index: 0;
+        }
+        .about-hero-bg .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+        }
+        .about-hero-bg .glow-orb:nth-child(1) {
+            width: 500px;
+            height: 500px;
+            background: #0066ff;
+            top: -150px;
+            right: -100px;
+            animation: floatGlow 8s ease-in-out infinite;
+        }
+        .about-hero-bg .glow-orb:nth-child(2) {
+            width: 350px;
+            height: 350px;
+            background: #00d4ff;
+            bottom: -80px;
+            left: -80px;
+            animation: floatGlow 10s ease-in-out infinite reverse;
+        }
+        .about-hero-bg .glow-orb:nth-child(3) {
+            width: 250px;
+            height: 250px;
+            background: #0066ff;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: floatGlow 12s ease-in-out infinite;
+            opacity: 0.1;
+        }
+        @keyframes floatGlow {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+        .about-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+        .about-hero-content .hero-badge {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.12);
+            color: #00d4ff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 6px 24px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+        }
+        .about-hero-content h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+        .about-hero-content h1 span {
+            background: linear-gradient(135deg, #00d4ff, #0066ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .about-hero-content p {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 650px;
+            margin: 0 auto 24px;
+        }
+        .about-hero-content .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .about-hero-content .hero-buttons .primary-btn {
+            background: linear-gradient(135deg, #00d4ff, #0066ff) !important;
+        }
+        .about-hero-content .hero-buttons .secondary-btn {
+            background: transparent !important;
+            color: #fff !important;
+            border: 2px solid rgba(255, 255, 255, 0.2) !important;
+            box-shadow: none !important;
+        }
+        .about-hero-content .hero-buttons .secondary-btn:hover {
+            background: rgba(255, 255, 255, 0.08) !important;
+            border-color: #00d4ff !important;
+        }
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.85rem;
+            margin-top: 24px;
+        }
+        .breadcrumb a {
+            color: #00d4ff;
+            transition: color 0.3s ease;
+        }
+        .breadcrumb a:hover {
+            color: #0066ff;
+        }
+
+        /* ===== INTRODUCTION ===== */
+        .intro-section {
+            background: #ffffff;
+            padding: 80px 0;
+        }
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .intro-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #0b1a2e;
+            margin-bottom: 16px;
+        }
+        .intro-content h2 span {
+            background: linear-gradient(135deg, #00d4ff, #0066ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .intro-content p {
+            color: #475569;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        .intro-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 24px;
+        }
+        .intro-stat {
+            text-align: center;
+            padding: 16px;
+            background: #f8fafc;
+            border-radius: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+        .intro-stat h4 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #0066ff;
+        }
+        .intro-stat p {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin: 0;
+        }
+        .intro-image-placeholder {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #0b1a2e, #1a2d4a);
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+        .intro-image-placeholder i {
+            font-size: 4rem;
+            color: #00d4ff;
+            margin-bottom: 16px;
+        }
+        .intro-image-placeholder span {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .intro-image-placeholder small {
+            font-size: 0.9rem;
+            opacity: 0.6;
+            margin-top: 4px;
+        }
+
+        /* ===== STORY ===== */
+        .story-section {
+            background: #f8fafc;
+            padding: 80px 0;
+        }
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .story-card {
+            background: #ffffff;
+            padding: 30px 24px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.4s ease;
+        }
+        .story-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+            border-color: rgba(0, 102, 255, 0.15);
+        }
+        .story-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(0, 102, 255, 0.08));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: #0066ff;
+            margin-bottom: 12px;
+        }
+        .story-card h3 {
+            font-size: 1.1rem;
+            color: #0b1a2e;
+            margin-bottom: 6px;
+        }
+        .story-card p {
+            color: #64748b;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ===== TIMELINE ===== */
+        .journey-section {
+            background: #ffffff;
+            padding: 80px 0;
+        }
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, #00d4ff, #0066ff);
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 40px;
+        }
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 12px;
+            top: 4px;
+            width: 18px;
+            height: 18px;
+            background: linear-gradient(135deg, #00d4ff, #0066ff);
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.2);
+        }
+        .timeline-content {
+            background: #f8fafc;
+            padding: 20px 24px;
+            border-radius: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.4s ease;
+        }
+        .timeline-content:hover {
+            transform: translateX(8px);
+            border-color: rgba(0, 102, 255, 0.15);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        }
+        .timeline-content h4 {
+            font-size: 0.85rem;
+            color: #0066ff;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+        .timeline-content h3 {
+            font-size: 1.2rem;
+            color: #0b1a2e;
+            margin-bottom: 4px;
+        }
+        .timeline-content p {
+            color: #64748b;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* ===== MISSION ===== */
+        .mission-section {
+            background: #f8fafc;
+            padding: 80px 0;
+        }
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .mission-card {
+            background: #ffffff;
+            padding: 36px 28px;
+            border-radius: 24px;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.5s ease;
+        }
+        .mission-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.08);
+            border-color: rgba(0, 102, 255, 0.15);
+        }
+        .mission-icon {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(0, 102, 255, 0.08));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 2rem;
+            color: #0066ff;
+            transition: all 0.4s ease;
+        }
+        .mission-card:hover .mission-icon {
+            background: linear-gradient(135deg, #00d4ff, #0066ff);
+            color: #fff;
+            transform: scale(1.1) rotate(-5deg);
+        }
+        .mission-card h3 {
+            font-size: 1.3rem;
+            color: #0b1a2e;
+            margin-bottom: 8px;
+        }
+        .mission-card p {
+            color: #64748b;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ===== VALUES ===== */
+        .values-section {
+            background: #ffffff;
+            padding: 80px 0;
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .value-card {
+            background: #f8fafc;
+            padding: 28px 20px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.4s ease;
+        }
+        .value-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(0, 102, 255, 0.15);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.04);
+        }
+        .value-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(0, 102, 255, 0.08));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-size: 1.4rem;
+            color: #0066ff;
+            transition: all 0.4s ease;
+        }
+        .value-card:hover .value-icon {
+            background: linear-gradient(135deg, #00d4ff, #0066ff);
+            color: #fff;
+            transform: scale(1.1);
+        }
+        .value-card h3 {
+            font-size: 1rem;
+            color: #0b1a2e;
+            margin-bottom: 4px;
+        }
+        .value-card p {
+            color: #64748b;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        /* ===== MANUFACTURING ===== */
+        .manufacturing-section {
+            background: #f8fafc;
+            padding: 80px 0;
+        }
+        .manufacturing-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .manufacturing-card {
+            background: #ffffff;
+            padding: 28px 20px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.4s ease;
+        }
+        .manufacturing-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.04);
+            border-color: rgba(0, 102, 255, 0.15);
+        }
+        .manufacturing-icon {
+            font-size: 2rem;
+            color: #0066ff;
+            margin-bottom: 12px;
+        }
+        .manufacturing-card h3 {
+            font-size: 1rem;
+            color: #0b1a2e;
+            margin-bottom: 4px;
+        }
+        .manufacturing-card p {
+            color: #64748b;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        /* ===== FACTORY GALLERY ===== */
+        .factory-section {
+            background: #ffffff;
+            padding: 80px 0;
+        }
+        .factory-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        .factory-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 280px;
+            cursor: pointer;
+        }
+        .factory-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .factory-item:hover img {
+            transform: scale(1.08);
+        }
+        .factory-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent 40%, rgba(0, 0, 0, 0.7));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 24px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .factory-item:hover .factory-overlay {
+            opacity: 1;
+        }
+        .factory-overlay h4 {
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 700;
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+        }
+        .factory-item:hover .factory-overlay h4 {
+            transform: translateY(0);
+        }
+        .factory-overlay p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85rem;
+            transform: translateY(20px);
+            transition: transform 0.4s ease 0.08s;
+        }
+        .factory-item:hover .factory-overlay p {
+            transform: translateY(0);
+        }
+
+        /* ===== VIDEO ===== */
+        .video-section {
+            background: #f8fafc;
+            padding: 80px 0;
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .video-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #0b1a2e;
+            margin-bottom: 12px;
+        }
+        .video-content h2 span {
+            background: linear-gradient(135deg, #00d4ff, #0066ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .video-content p {
+            color: #475569;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        .video-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .video-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #0b1a2e;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .video-feature i {
+            color: #0066ff;
+        }
+        .video-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+        }
+        .video-wrapper video {
+            width: 100%;
+            height: auto;
+            min-height: 320px;
+            display: block;
+            background: #000;
+        }
+        .video-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.4s ease;
+            cursor: pointer;
+        }
+        .video-play-btn {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.4s ease;
+        }
+        .video-play-btn i {
+            font-size: 2rem;
+            color: #00d4ff;
+            margin-left: 4px;
+        }
+        .video-overlay:hover .video-play-btn {
+            background: rgba(0, 212, 255, 0.2);
+            transform: scale(1.08);
+        }
+        .video-overlay span {
+            color: #fff;
+            font-size: 0.85rem;
+            margin-top: 14px;
+            font-weight: 500;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* ===== BATTERY GALLERY ===== */
+        .battery-gallery-section {
+            background: #ffffff;
+            padding: 80px 0;
+        }
+        .battery-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .battery-card {
+            background: #f8fafc;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+        .battery-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.08);
+            border-color: rgba(0, 102, 255, 0.15);
+        }
+        .battery-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .battery-card:hover img {
+            transform: scale(1.05);
+        }
+        .battery-info {
+            padding: 20px;
+        }
+        .battery-info h4 {
+            font-size: 1.1rem;
+            color: #0b1a2e;
+            margin-bottom: 4px;
+        }
+        .battery-info p {
+            color: #64748b;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+        .battery-tag {
+            display: inline-block;
+            background: rgba(0, 102, 255, 0.08);
+            color: #0066ff;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 2px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ===== CHARGER GALLERY ===== */
+        .charger-gallery-section {
+            background: #f8fafc;
+            padding: 80px 0;
+        }
+        .charger-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        .charger-card {
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+        .charger-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.08);
+            border-color: rgba(0, 102, 255, 0.15);
+        }
+        .charger-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .charger-card:hover img {
+            transform: scale(1.05);
+        }
+        .charger-info {
+            padding: 20px;
+        }
+        .charger-info h4 {
+            font-size: 1.1rem;
+            color: #0b1a2e;
+            margin-bottom: 4px;
+        }
+        .charger-info p {
+            color: #64748b;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+        .charger-tag {
+            display: inline-block;
+            background: rgba(0, 102, 255, 0.08);
+            color: #0066ff;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 2px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ===== R&D ===== */
+        .rd-section {
+            background: #ffffff;
+            padding: 80px 0;
+        }
+        .rd-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .rd-card {
+            background: #f8fafc;
+            padding: 28px 20px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.4s ease;
+        }
+        .rd-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.04);
+            border-color: rgba(0, 102, 255, 0.15);
+        }
+        .rd-icon {
+            font-size: 2rem;
+            color: #0066ff;
+            margin-bottom: 12px;
+        }
+        .rd-card h3 {
+            font-size: 1.1rem;
+            color: #0b1a2e;
+            margin-bottom: 4px;
+        }
+        .rd-card p {
+            color: #64748b;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        /* ===== QUALITY ===== */
+        .quality-section {
+            background: #f8fafc;
+            padding: 80px 0;
+        }
+        .quality-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .quality-card {
+            background: #ffffff;
+            padding: 28px 20px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.4s ease;
+        }
+        .quality-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.04);
+            border-color: rgba(0, 102, 255, 0.15);
+        }
+        .quality-icon {
+            font-size: 2rem;
+            color: #0066ff;
+            margin-bottom: 12px;
+        }
+        .quality-card h3 {
+            font-size: 1rem;
+            color: #0b1a2e;
+            margin-bottom: 4px;
+        }
+        .quality-card p {
+            color: #64748b;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        /* ===== WHY CHOOSE ===== */
+        .why-section-about {
+            background: #ffffff;
+            padding: 80px 0;
+        }
+        .why-grid-about {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .why-card-about {
+            background: #f8fafc;
+            padding: 28px 20px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.4s ease;
+        }
+        .why-card-about:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.04);
+            border-color: rgba(0, 102, 255, 0.15);
+        }
+        .why-icon-about {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(0, 102, 255, 0.08));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-size: 1.4rem;
+            color: #0066ff;
+            transition: all 0.4s ease;
+        }
+        .why-card-about:hover .why-icon-about {
+            background: linear-gradient(135deg, #00d4ff, #0066ff);
+            color: #fff;
+            transform: scale(1.1);
+        }
+        .why-card-about h3 {
+            font-size: 1rem;
+            color: #0b1a2e;
+            margin-bottom: 4px;
+        }
+        .why-card-about p {
+            color: #64748b;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        /* ===== STATISTICS ===== */
+        .stats-section-about {
+            background: linear-gradient(135deg, #0b1a2e, #1a2d4a);
+            padding: 80px 0;
+        }
+        .stats-grid-about {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+        .stat-card-about .stat-number-about {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #00d4ff;
+            line-height: 1.2;
+        }
+        .stat-card-about p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-top: 4px;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-section-about {
+            background: #f8fafc;
+            padding: 80px 0;
+        }
+        .contact-grid-about {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .contact-card-about {
+            background: #ffffff;
+            padding: 24px 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.4s ease;
+        }
+        .contact-card-about:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.04);
+            border-color: rgba(0, 102, 255, 0.15);
+        }
+        .contact-icon-about {
+            font-size: 1.8rem;
+            color: #0066ff;
+            margin-bottom: 10px;
+        }
+        .contact-card-about h4 {
+            font-size: 0.95rem;
+            color: #0b1a2e;
+            margin-bottom: 4px;
+        }
+        .contact-card-about p {
+            color: #64748b;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+        .contact-card-about a {
+            color: #0066ff;
+        }
+        .contact-card-about a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0b1a2e;
+            padding: 50px 0 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .footer-brand .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        .footer-brand .footer-logo i {
+            font-size: 1.6rem;
+            color: #00d4ff;
+        }
+        .footer-brand .footer-logo span {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #fff;
+        }
+        .footer-brand .footer-logo span span {
+            color: #00d4ff;
+        }
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+            line-height: 1.7;
+            max-width: 280px;
+        }
+        .footer-social {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+        }
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+            color: rgba(255, 255, 255, 0.5);
+            transition: all 0.4s ease;
+        }
+        .footer-social a:hover {
+            background: linear-gradient(135deg, #00d4ff, #0066ff);
+            color: #fff;
+            transform: translateY(-4px);
+        }
+        .footer-grid h4 {
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+        .footer-grid ul li {
+            margin-bottom: 8px;
+        }
+        .footer-grid ul li a {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+        .footer-grid ul li a:hover {
+            color: #00d4ff;
+        }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+        }
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.8rem;
+        }
+        .footer-bottom-links {
+            display: flex;
+            gap: 20px;
+        }
+        .footer-bottom-links a {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.8rem;
+            transition: color 0.3s ease;
+        }
+        .footer-bottom-links a:hover {
+            color: #00d4ff;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .about-hero-content h1 { font-size: 3rem; }
+            .intro-grid { grid-template-columns: 1fr; gap: 40px; }
+            .story-grid { grid-template-columns: repeat(2, 1fr); }
+            .values-grid { grid-template-columns: repeat(2, 1fr); }
+            .manufacturing-grid { grid-template-columns: repeat(2, 1fr); }
+            .quality-grid { grid-template-columns: repeat(2, 1fr); }
+            .why-grid-about { grid-template-columns: repeat(2, 1fr); }
+            .stats-grid-about { grid-template-columns: repeat(2, 1fr); }
+            .contact-grid-about { grid-template-columns: repeat(2, 1fr); }
+            .battery-gallery { grid-template-columns: repeat(2, 1fr); }
+            .video-grid { grid-template-columns: 1fr; gap: 30px; }
+            .factory-gallery { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            .nav-links {
+                position: absolute;
+                top: 68px;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px 24px;
+                gap: 12px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+                display: none;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+            }
+            .nav-links.active { display: flex; }
+            .nav-links li { width: 100%; color: #1e293b !important; }
+            .nav-links .dropdown {
+                position: static;
+                background: transparent;
+                backdrop-filter: none;
+                box-shadow: none;
+                padding: 6px 0 0 16px;
+                border: none;
+                display: none;
+            }
+            .nav-links .dropdown-parent.active-dropdown .dropdown {
+                display: block;
+            }
+            .nav-links li::after { display: none; }
+            .logo-text { color: #0b1a2e !important; }
+            .hamburger span { background: #0b1a2e !important; }
+            .nav-quote { background: linear-gradient(135deg, #00d4ff, #0066ff) !important; color: #fff !important; }
+
+            .about-hero { min-height: 50vh; padding: 100px 0 40px; }
+            .about-hero-content h1 { font-size: 2.2rem; }
+            .about-hero-content p { font-size: 1rem; }
+            .story-grid { grid-template-columns: 1fr; }
+            .mission-grid { grid-template-columns: 1fr; }
+            .values-grid { grid-template-columns: 1fr; }
+            .manufacturing-grid { grid-template-columns: 1fr; }
+            .quality-grid { grid-template-columns: 1fr; }
+            .why-grid-about { grid-template-columns: 1fr; }
+            .contact-grid-about { grid-template-columns: 1fr; }
+            .battery-gallery { grid-template-columns: 1fr; }
+            .charger-gallery { grid-template-columns: 1fr; }
+            .stats-grid-about { grid-template-columns: 1fr 1fr; }
+            .factory-gallery { grid-template-columns: 1fr; }
+            .factory-item { height: 200px; }
+            .rd-grid { grid-template-columns: 1fr; }
+            .video-features { grid-template-columns: 1fr; }
+            .intro-stats { grid-template-columns: 1fr 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 0 14px; }
+            .about-hero-content h1 { font-size: 1.8rem; }
+            .intro-content h2 { font-size: 1.8rem; }
+            .stats-grid-about { grid-template-columns: 1fr; }
+            .intro-stats { grid-template-columns: 1fr; }
+            .video-wrapper video { min-height: 200px; }
+            .section-title { font-size: 1.8rem; }
+            .about-hero-content .hero-buttons { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- ==================== PRELOADER ==================== -->
+    <div class="preloader" id="preloader">
+        <div class="loader-container">
+            <div class="loader-ring">
+                <div class="loader-ring-inner"></div>
+                <div class="loader-ring-inner-2"></div>
+                <div class="loader-center-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+            </div>
+            <p class="loader-text">RAYS Global Energy</p>
+            <p class="loader-sub">Powering Tomorrow</p>
+        </div>
+    </div>
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <span class="logo-text">RAYS <span>Energy</span></span>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown-parent">
+                    <a href="about.html" class="active">About</a> <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    <ul class="dropdown">
+                        <li><a href="#story">Our Story</a></li>
+                        <li><a href="#journey">Our Journey</a></li>
+                        <li><a href="#mission">Mission & Vision</a></li>
+                        <li><a href="#values">Core Values</a></li>
+                        <li><a href="#manufacturing">Manufacturing</a></li>
+                        <li><a href="#factory">Factory</a></li>
+                        <li><a href="#rd">R&D</a></li>
+                        <li><a href="#quality">Quality Assurance</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#products">Products</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="index.html#videos">Videos</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="index.html#contact" class="btn nav-quote">Get Quote</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ==================== ABOUT HERO ==================== -->
+    <section class="about-hero">
+        <div class="about-hero-bg">
+            <div class="glow-orb"></div>
+            <div class="glow-orb"></div>
+            <div class="glow-orb"></div>
+        </div>
+        <div class="about-hero-content reveal">
+            <span class="hero-badge">RAYS Global Energy Pvt. Ltd.</span>
+            <h1>Powering the <span>Future</span> of Electric Mobility</h1>
+            <p>India's most trusted EV Battery and Smart EV Charger manufacturer, committed to innovation, quality, and sustainability.</p>
+            <div class="hero-buttons">
+                <a href="#story" class="btn primary-btn">Discover Our Story <i class="fas fa-arrow-right"></i></a>
+                <a href="index.html#contact" class="btn secondary-btn">Get a Quote <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right" style="font-size:0.6rem;align-self:center;"></i>
+                <span>About Us</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== INTRODUCTION ==================== -->
+    <section class="intro-section">
+        <div class="container">
+            <div class="intro-grid reveal">
+                <div class="intro-content">
+                    <span class="section-tag">Who We Are</span>
+                    <h2>Building the <span>Future</span> of Energy</h2>
+                    <p>RAYS Global Energy Pvt. Ltd. is a premier manufacturer of high-performance EV Batteries and Smart EV Chargers, dedicated to accelerating the global transition to electric mobility.</p>
+                    <p>With over two decades of engineering excellence, we combine cutting-edge technology, superior safety standards, and sustainable manufacturing practices to deliver world-class energy solutions that power modern transportation.</p>
+                    <p>From advanced lithium battery technology to intelligent EV charging infrastructure, our products are engineered for reliability, efficiency, and long-term performance — trusted by thousands of customers across 50+ countries.</p>
+                    <div class="intro-stats">
+                        <div class="intro-stat">
+                            <h4>20+</h4>
+                            <p>Years of Excellence</p>
+                        </div>
+                        <div class="intro-stat">
+                            <h4>5000+</h4>
+                            <p>Happy Customers</p>
+                        </div>
+                        <div class="intro-stat">
+                            <h4>50+</h4>
+                            <p>Countries Served</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="intro-image-placeholder">
+                    <i class="fas fa-bolt"></i>
+                    <span>RAYS Global Energy</span>
+                    <small>Premium EV Solutions</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== OUR STORY ==================== -->
+    <section class="story-section" id="story">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Our Story</span>
+                <h2 class="section-title">The <span>Journey</span> of Innovation</h2>
+                <p class="section-sub">From a vision to a global leader in EV battery technology — our story of passion, innovation, and excellence.</p>
+            </div>
+            <div class="story-grid reveal">
+                <div class="story-card">
+                    <div class="story-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>The Beginning</h3>
+                    <p>Founded with a vision to revolutionize the energy landscape, RAYS Global Energy started as a small battery manufacturer with a big dream.</p>
+                </div>
+                <div class="story-card">
+                    <div class="story-icon"><i class="fas fa-microchip"></i></div>
+                    <h3>Technology Evolution</h3>
+                    <p>Invested heavily in R&D to develop advanced lithium battery technology, setting new standards for performance and safety.</p>
+                </div>
+                <div class="story-card">
+                    <div class="story-icon"><i class="fas fa-industry"></i></div>
+                    <h3>Manufacturing Excellence</h3>
+                    <p>Expanded our manufacturing capabilities with state-of-the-art facilities, automated production lines, and rigorous quality control.</p>
+                </div>
+                <div class="story-card">
+                    <div class="story-icon"><i class="fas fa-car"></i></div>
+                    <h3>EV Revolution</h3>
+                    <p>Pioneered EV battery and charger solutions, becoming a trusted partner for electric vehicle manufacturers worldwide.</p>
+                </div>
+                <div class="story-card">
+                    <div class="story-icon"><i class="fas fa-globe"></i></div>
+                    <h3>Global Expansion</h3>
+                    <p>Established a global presence with headquarters in India and Singapore, serving customers across 50+ countries.</p>
+                </div>
+                <div class="story-card">
+                    <div class="story-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Future Forward</h3>
+                    <p>Continuing to innovate and lead the industry with next-generation battery technology and smart charging solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TIMELINE ==================== -->
+    <section class="journey-section" id="journey">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Our Journey</span>
+                <h2 class="section-title">Milestones of <span>Excellence</span></h2>
+                <p class="section-sub">A timeline of innovation, growth, and commitment to powering the future of mobility.</p>
+            </div>
+            <div class="timeline reveal">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>2003</h4>
+                        <h3>Company Started</h3>
+                        <p>RAYS Global Energy was founded with a vision to revolutionize battery technology in India.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>2008</h4>
+                        <h3>Research & Development</h3>
+                        <p>Established dedicated R&D facility to develop advanced battery technologies and energy solutions.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>2012</h4>
+                        <h3>Manufacturing Expansion</h3>
+                        <p>Expanded manufacturing capabilities with state-of-the-art production facilities and automated systems.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>2015</h4>
+                        <h3>EV Battery Production</h3>
+                        <p>Launched premium EV battery solutions, setting new standards for performance and safety in electric vehicles.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>2018</h4>
+                        <h3>EV Charger Manufacturing</h3>
+                        <p>Introduced intelligent EV charging solutions with advanced safety features and smart connectivity.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>2020</h4>
+                        <h3>Advanced Technology</h3>
+                        <p>Integrated IoT and AI technologies into our products, creating smarter and more efficient energy solutions.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>2023</h4>
+                        <h3>Growing Customer Network</h3>
+                        <p>Serving 5000+ customers across 50+ countries with premium EV battery and charging solutions.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>2026</h4>
+                        <h3>Future Innovation</h3>
+                        <p>Continuing to lead the industry with next-generation technology, sustainable practices, and global expansion.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== MISSION & VISION ==================== -->
+    <section class="mission-section" id="mission">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Our Purpose</span>
+                <h2 class="section-title">Mission, Vision &amp; <span>Values</span></h2>
+                <p class="section-sub">Driving the future of electric mobility through innovation, quality, and sustainability.</p>
+            </div>
+            <div class="mission-grid reveal">
+                <div class="mission-card">
+                    <div class="mission-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>Our Mission</h3>
+                    <p>To provide innovative, reliable, and high-performance EV Batteries and Charging Solutions that empower clean energy and sustainable transportation across India and the world.</p>
+                </div>
+                <div class="mission-card">
+                    <div class="mission-icon"><i class="fas fa-eye"></i></div>
+                    <h3>Our Vision</h3>
+                    <p>To become India's most trusted and globally recognized EV Battery and EV Charging Solution manufacturer, delivering world-class products and exceptional customer value.</p>
+                </div>
+                <div class="mission-card">
+                    <div class="mission-icon"><i class="fas fa-heart"></i></div>
+                    <h3>Core Values</h3>
+                    <p>Innovation, Quality, Trust, Technology, Customer First, Safety, and Sustainability — the principles that guide everything we do.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CORE VALUES ==================== -->
+    <section class="values-section" id="values">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Our Values</span>
+                <h2 class="section-title">What Drives <span>Us</span></h2>
+                <p class="section-sub">The core principles that define our culture, guide our decisions, and inspire our innovation.</p>
+            </div>
+            <div class="values-grid reveal">
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-flask"></i></div>
+                    <h3>Innovation</h3>
+                    <p>Continuously pushing boundaries to develop cutting-edge battery technology and smart charging solutions.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-medal"></i></div>
+                    <h3>Quality</h3>
+                    <p>Uncompromising commitment to premium quality in every product, from design to manufacturing and delivery.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-handshake"></i></div>
+                    <h3>Trust</h3>
+                    <p>Building lasting relationships with customers, partners, and communities through integrity and reliability.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-microchip"></i></div>
+                    <h3>Technology</h3>
+                    <p>Leveraging advanced technology to create smarter, safer, and more efficient energy solutions.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-users"></i></div>
+                    <h3>Customer First</h3>
+                    <p>Putting customers at the heart of everything we do with dedicated support and exceptional service.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Safety</h3>
+                    <p>Ensuring the highest safety standards with multi-layer protection and international certifications.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>Sustainability</h3>
+                    <p>Committed to eco-friendly manufacturing and products that support a cleaner, greener planet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== MANUFACTURING ==================== -->
+    <section class="manufacturing-section" id="manufacturing">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Manufacturing Excellence</span>
+                <h2 class="section-title">Engineering <span>Perfection</span></h2>
+                <p class="section-sub">State-of-the-art manufacturing facilities combining advanced technology, skilled workforce, and rigorous quality control.</p>
+            </div>
+            <div class="manufacturing-grid reveal">
+                <div class="manufacturing-card">
+                    <div class="manufacturing-icon"><i class="fas fa-industry"></i></div>
+                    <h3>Advanced Manufacturing</h3>
+                    <p>Modern production facilities equipped with automated systems for precision engineering and consistent quality.</p>
+                </div>
+                <div class="manufacturing-card">
+                    <div class="manufacturing-icon"><i class="fas fa-robot"></i></div>
+                    <h3>Automated Production</h3>
+                    <p>Robotics and automation technologies ensuring high precision, efficiency, and product consistency.</p>
+                </div>
+                <div class="manufacturing-card">
+                    <div class="manufacturing-icon"><i class="fas fa-microscope"></i></div>
+                    <h3>Quality Testing</h3>
+                    <p>Rigorous testing procedures at every stage — from raw materials to finished products — ensuring reliability.</p>
+                </div>
+                <div class="manufacturing-card">
+                    <div class="manufacturing-icon"><i class="fas fa-users-gear"></i></div>
+                    <h3>Skilled Workforce</h3>
+                    <p>Expert team of engineers, technicians, and quality specialists dedicated to manufacturing excellence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FACTORY GALLERY ==================== -->
+    <section class="factory-section" id="factory">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Our Facility</span>
+                <h2 class="section-title">Production &amp; <span>Factory</span></h2>
+                <p class="section-sub">Take a virtual tour of our state-of-the-art manufacturing facility where innovation meets precision engineering.</p>
+            </div>
+            <div class="factory-gallery reveal">
+                <div class="factory-item">
+                    <img src="assets/images/charger1.jpeg" alt="RAYS Global Energy Factory" />
+                    <div class="factory-overlay">
+                        <h4>Main Production Facility</h4>
+                        <p>State-of-the-art manufacturing plant</p>
+                    </div>
+                </div>
+                <div class="factory-item">
+                    <img src="assets/images/charger1.jpeg" alt="Manufacturing Line" />
+                    <div class="factory-overlay">
+                        <h4>Automated Assembly Line</h4>
+                        <p>Precision engineering in action</p>
+                    </div>
+                </div>
+                <div class="factory-item">
+                    <img src="assets/images/charger2.jpeg" alt="Quality Control" />
+                    <div class="factory-overlay">
+                        <h4>Quality Control Lab</h4>
+                        <p>Rigorous testing and quality assurance</p>
+                    </div>
+                </div>
+                <div class="factory-item">
+                    <img src="assets/images/battery3.jpeg" alt="Office Space" />
+                    <div class="factory-overlay">
+                        <h4>Corporate Office</h4>
+                        <p>Innovation and collaboration hub</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FACTORY VIDEO ==================== -->
+    <section class="video-section">
+        <div class="container">
+            <div class="video-grid reveal">
+                <div class="video-content">
+                    <span class="section-tag">Manufacturing Excellence</span>
+                    <h2>See Our <span>Factory</span> in Action</h2>
+                    <p>Watch our advanced manufacturing process — from precision engineering and automated assembly to rigorous quality testing — that ensures every RAYS product meets the highest standards of quality and reliability.</p>
+                    <div class="video-features">
+                        <div class="video-feature"><i class="fas fa-check-circle"></i> Advanced Automation</div>
+                        <div class="video-feature"><i class="fas fa-check-circle"></i> Precision Engineering</div>
+                        <div class="video-feature"><i class="fas fa-check-circle"></i> Quality Control</div>
+                        <div class="video-feature"><i class="fas fa-check-circle"></i> Skilled Workforce</div>
+                    </div>
+                </div>
+                <div class="video-wrapper">
+                    <video autoplay muted loop playsinline>
+                        <source src="assets/video/company.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-overlay">
+                        <div class="video-play-btn"><i class="fas fa-play"></i></div>
+                        <span>Factory Tour</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BATTERY GALLERY ==================== -->
+    <section class="battery-gallery-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Battery Solutions</span>
+                <h2 class="section-title">Premium <span>Battery</span> Range</h2>
+                <p class="section-sub">High-performance lithium batteries engineered for reliability, safety, and long-lasting power.</p>
+            </div>
+            <div class="battery-gallery reveal">
+                <div class="battery-card">
+                    <img src="assets/images/battery1.jpeg" alt="12V 32Ah Lithium Battery" />
+                    <div class="battery-info">
+                        <h4>12V 32Ah Lithium Battery</h4>
+                        <p>Deep-cycle performance with 2000+ cycle life</p>
+                        <span class="battery-tag">Premium</span>
+                    </div>
+                </div>
+                <div class="battery-card">
+                    <img src="assets/images/battery2.jpeg" alt="12V 34Ah Lithium Battery" />
+                    <div class="battery-info">
+                        <h4>12V 34Ah Lithium Battery</h4>
+                        <p>Enhanced capacity with superior reliability</p>
+                        <span class="battery-tag">Advanced</span>
+                    </div>
+                </div>
+                <div class="battery-card">
+                    <img src="assets/images/battery3.jpeg" alt="Lithium Battery Technology" />
+                    <div class="battery-info">
+                        <h4>Advanced Lithium Technology</h4>
+                        <p>High energy density with fast charging capability</p>
+                        <span class="battery-tag">Innovation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CHARGER GALLERY ==================== -->
+    <section class="charger-gallery-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Charging Solutions</span>
+                <h2 class="section-title">Smart <span>EV Charger</span> Range</h2>
+                <p class="section-sub">Intelligent EV charging solutions with advanced safety, smart connectivity, and superior performance.</p>
+            </div>
+            <div class="charger-gallery reveal">
+                <div class="charger-card">
+                    <img src="assets/images/charger1.jpeg" alt="Smart EV Charger" />
+                    <div class="charger-info">
+                        <h4>Smart EV Charging Station</h4>
+                        <p>3kW - 22kW with IoT connectivity</p>
+                        <span class="charger-tag">Smart Tech</span>
+                    </div>
+                </div>
+                <div class="charger-card">
+                    <img src="assets/images/charger2.jpeg" alt="EV Charger Technology" />
+                    <div class="charger-info">
+                        <h4>Premium EV Charger</h4>
+                        <p>Advanced safety and battery care technology</p>
+                        <span class="charger-tag">Premium</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== R&D ==================== -->
+    <section class="rd-section" id="rd">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Innovation Hub</span>
+                <h2 class="section-title">Research &amp; <span>Development</span></h2>
+                <p class="section-sub">Driving the future of EV technology through continuous innovation, engineering excellence, and cutting-edge research.</p>
+            </div>
+            <div class="rd-grid reveal">
+                <div class="rd-card">
+                    <div class="rd-icon"><i class="fas fa-flask"></i></div>
+                    <h3>Advanced Research</h3>
+                    <p>Exploring next-generation battery chemistries, materials science, and energy storage technologies.</p>
+                </div>
+                <div class="rd-card">
+                    <div class="rd-icon"><i class="fas fa-microchip"></i></div>
+                    <h3>Engineering Excellence</h3>
+                    <p>Developing innovative solutions with advanced engineering, simulation, and prototyping capabilities.</p>
+                </div>
+                <div class="rd-card">
+                    <div class="rd-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Future Mobility</h3>
+                    <p>Designing intelligent energy systems for the future of electric vehicles and sustainable transportation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== QUALITY ==================== -->
+    <section class="quality-section" id="quality">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Quality Assurance</span>
+                <h2 class="section-title">Commitment to <span>Excellence</span></h2>
+                <p class="section-sub">Every RAYS product undergoes rigorous testing and quality control to ensure unmatched reliability, safety, and performance.</p>
+            </div>
+            <div class="quality-grid reveal">
+                <div class="quality-card">
+                    <div class="quality-icon"><i class="fas fa-certificate"></i></div>
+                    <h3>Quality Standards</h3>
+                    <p>ISO 9001:2015 certified manufacturing processes ensuring consistent quality and continuous improvement.</p>
+                </div>
+                <div class="quality-card">
+                    <div class="quality-icon"><i class="fas fa-vial"></i></div>
+                    <h3>Performance Testing</h3>
+                    <p>Comprehensive performance testing including capacity, cycle life, temperature, and load testing.</p>
+                </div>
+                <div class="quality-card">
+                    <div class="quality-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Safety Testing</h3>
+                    <p>Rigorous safety testing with short-circuit, overcharge, thermal runaway, and impact resistance tests.</p>
+                </div>
+                <div class="quality-card">
+                    <div class="quality-icon"><i class="fas fa-gem"></i></div>
+                    <h3>Reliable Engineering</h3>
+                    <p>Designed and manufactured to deliver consistent performance and long-term durability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== WHY CHOOSE RAYS ==================== -->
+    <section class="why-section-about">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Why RAYS Global Energy</span>
+                <h2 class="section-title">Built on <span>Innovation &amp; Trust</span></h2>
+                <p class="section-sub">What makes us the preferred choice for EV battery and charging solutions worldwide.</p>
+            </div>
+            <div class="why-grid-about reveal">
+                <div class="why-card-about">
+                    <div class="why-icon-about"><i class="fas fa-microchip"></i></div>
+                    <h3>Advanced Technology</h3>
+                    <p>Cutting-edge battery technology with superior energy density and smart charging capabilities.</p>
+                </div>
+                <div class="why-card-about">
+                    <div class="why-icon-about"><i class="fas fa-medal"></i></div>
+                    <h3>Premium Quality</h3>
+                    <p>Uncompromising quality standards with ISO, CE, and UL certifications.</p>
+                </div>
+                <div class="why-card-about">
+                    <div class="why-icon-about"><i class="fas fa-gauge-high"></i></div>
+                    <h3>Reliable Performance</h3>
+                    <p>Engineered for consistent performance, long cycle life, and dependable operation.</p>
+                </div>
+                <div class="why-card-about">
+                    <div class="why-icon-about"><i class="fas fa-clock"></i></div>
+                    <h3>Long Life</h3>
+                    <p>2000+ cycle life with superior depth of discharge and recovery capabilities.</p>
+                </div>
+                <div class="why-card-about">
+                    <div class="why-icon-about"><i class="fas fa-leaf"></i></div>
+                    <h3>Eco-Friendly</h3>
+                    <p>Sustainable manufacturing processes and eco-friendly products for a greener future.</p>
+                </div>
+                <div class="why-card-about">
+                    <div class="why-icon-about"><i class="fas fa-headset"></i></div>
+                    <h3>Customer Support</h3>
+                    <p>Dedicated support team, comprehensive warranty, and 24/7 assistance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== STATISTICS ==================== -->
+    <section class="stats-section-about">
+        <div class="container">
+            <div class="stats-grid-about reveal">
+                <div class="stat-card-about">
+                    <div class="stat-number-about" data-target="20">0</div>
+                    <p>Years of Excellence</p>
+                </div>
+                <div class="stat-card-about">
+                    <div class="stat-number-about" data-target="5000">0</div>
+                    <p>Satisfied Customers</p>
+                </div>
+                <div class="stat-card-about">
+                    <div class="stat-number-about" data-target="50">0</div>
+                    <p>Quality Standards</p>
+                </div>
+                <div class="stat-card-about">
+                    <div class="stat-number-about" data-target="100">0</div>
+                    <p>% Customer Satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT ==================== -->
+    <section class="contact-section-about">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Connect With Us</span>
+                <h2 class="section-title">Get In <span>Touch</span></h2>
+                <p class="section-sub">Have questions about our products or need a custom solution? Reach out to our team.</p>
+            </div>
+            <div class="contact-grid-about reveal">
+                <div class="contact-card-about">
+                    <div class="contact-icon-about"><i class="fas fa-map-marker-alt"></i></div>
+                    <h4>India Corporate Office</h4>
+                    <p>718 BHAVESHWAR ARCADE, ANNEX LBS MARG,<br />OPPOSITE SHREYAS CINEMA, GHATKOPAR (WEST),<br />MUMBAI 400086</p>
+                </div>
+                <div class="contact-card-about">
+                    <div class="contact-icon-about"><i class="fas fa-map-pin"></i></div>
+                    <h4>Singapore Office</h4>
+                    <p>10, Anson Road, #22-02,<br />International Plaza,<br />Singapore - 079903</p>
+                </div>
+                <div class="contact-card-about">
+                    <div class="contact-icon-about"><i class="fas fa-envelope"></i></div>
+                    <h4>Email Us</h4>
+                    <p><a href="mailto:sales@raysbattery.com">sales@raysbattery.com</a></p>
+                    <p style="font-size:0.8rem;color:#94a3b8;">We respond within 24 hours</p>
+                </div>
+                <div class="contact-card-about">
+                    <div class="contact-icon-about"><i class="fas fa-phone"></i></div>
+                    <h4>Call Us</h4>
+                    <p><a href="tel:+917400405876">+91 74004 05876</a></p>
+                    <p><a href="tel:+6598739920">+65 9873 9920</a></p>
+                    <p style="font-size:0.8rem;color:#94a3b8;">Mon-Fri: 9:00 AM - 6:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <i class="fas fa-bolt"></i>
+                    <span>RAYS <span>Energy</span></span>
+                </div>
+                <p>RAYS Global Energy Pvt. Ltd. — Powering the future of electric mobility with premium EV batteries and smart charging solutions.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="index.html#products">EV Lithium Batteries</a></li>
+                    <li><a href="index.html#products">Smart EV Chargers</a></li>
+                    <li><a href="index.html#products">Industrial Batteries</a></li>
+                    <li><a href="index.html#products">Energy Storage Systems</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Technical Support</a></li>
+                    <li><a href="#">Downloads</a></li>
+                    <li><a href="#">Warranty Policy</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 RAYS Global Energy Pvt. Ltd. All Rights Reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ==================== ABOUT PAGE JAVASCRIPT ====================
+
+        // ===== PRELOADER =====
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.classList.add('hidden');
+            }, 1500);
+        });
+
+        // ===== NAVBAR SCROLL =====
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // ===== HAMBURGER MENU =====
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.dropdown-parent').forEach(parent => {
+            parent.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    parent.classList.toggle('active-dropdown');
+                }
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav') && window.innerWidth <= 768) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+                document.querySelectorAll('.dropdown-parent').forEach(p => {
+                    p.classList.remove('active-dropdown');
+                });
+            }
+        });
+
+        // ===== SCROLL REVEAL =====
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.12 });
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // ===== STATISTICS COUNTER ANIMATION =====
+        const statNumbers = document.querySelectorAll('.stat-number-about');
+        const statObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.dataset.target);
+                    let current = 0;
+                    const step = Math.ceil(target / 60);
+                    const interval = setInterval(() => {
+                        current += step;
+                        if (current >= target) {
+                            el.textContent = target + '+';
+                            clearInterval(interval);
+                        } else {
+                            el.textContent = current + '+';
+                        }
+                    }, 25);
+                    statObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.3 });
+        statNumbers.forEach(el => statObserver.observe(el));
+
+        // ===== FACTORY VIDEO PLAY/PAUSE =====
+        const videoWrappers = document.querySelectorAll('.video-wrapper');
+        videoWrappers.forEach(wrapper => {
+            const video = wrapper.querySelector('video');
+            const overlay = wrapper.querySelector('.video-overlay');
+            
+            if (video && overlay) {
+                overlay.addEventListener('click', () => {
+                    if (video.paused) {
+                        video.play();
+                        overlay.style.opacity = '0';
+                        overlay.style.pointerEvents = 'none';
+                    } else {
+                        video.pause();
+                        overlay.style.opacity = '1';
+                        overlay.style.pointerEvents = 'auto';
+                    }
+                });
+                
+                video.addEventListener('play', () => {
+                    overlay.style.opacity = '0';
+                    overlay.style.pointerEvents = 'none';
+                });
+                
+                video.addEventListener('pause', () => {
+                    overlay.style.opacity = '1';
+                    overlay.style.pointerEvents = 'auto';
+                });
+            }
+        });
+
+        // ===== VIDEO AUTOPLAY LOOP FIX =====
+        document.addEventListener('DOMContentLoaded', function() {
+            const allVideos = document.querySelectorAll('video');
+            allVideos.forEach(video => {
+                video.setAttribute('autoplay', '');
+                video.setAttribute('muted', '');
+                video.setAttribute('loop', '');
+                video.setAttribute('playsinline', '');
+                video.play().catch(() => {
+                    document.addEventListener('click', function playVideo() {
+                        video.play();
+                        document.removeEventListener('click', playVideo);
+                    }, { once: true });
+                });
+                video.addEventListener('ended', function() {
+                    this.currentTime = 0;
+                    this.play();
+                });
+            });
+        });
+
+        // ===== SMOOTH SCROLL FOR DROPDOWN LINKS =====
+        document.querySelectorAll('.dropdown a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId !== '#') {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const navHeight = navbar.offsetHeight;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        // ===== FORCE PLAY ON ANY CLICK (FOR MOBILE) =====
+        document.addEventListener('click', function() {
+            const videos = document.querySelectorAll('video');
+            videos.forEach(video => {
+                if (video.paused) {
+                    video.play().catch(e => console.log('Play failed'));
+                }
+            });
+        }, { once: false });
+    </script>
+</body>
+</html>
