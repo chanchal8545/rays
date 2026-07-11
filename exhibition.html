@@ -1,0 +1,1708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exhibitions - RAYS Global Energy | Innovation on Display</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* ==================== EXHIBITION PAGE STYLES ==================== */
+
+        /* ===== SECTION 1: EXHIBITION HERO ===== */
+        .exhibition-hero {
+            position: relative;
+            width: 100%;
+            min-height: 80vh;
+            padding: 140px 0 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #0b1a2e;
+        }
+
+        .exhibition-hero-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #0b1a2e 0%, #1a2d4a 50%, #0b1a2e 100%);
+            z-index: 0;
+        }
+
+        .exhibition-hero-bg .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+        }
+
+        .exhibition-hero-bg .glow-orb:nth-child(1) {
+            width: 500px;
+            height: 500px;
+            background: #0066ff;
+            top: -150px;
+            right: -100px;
+            animation: floatGlow 8s ease-in-out infinite;
+        }
+
+        .exhibition-hero-bg .glow-orb:nth-child(2) {
+            width: 350px;
+            height: 350px;
+            background: #00d4ff;
+            bottom: -80px;
+            left: -80px;
+            animation: floatGlow 10s ease-in-out infinite reverse;
+        }
+
+        .exhibition-hero-bg .glow-orb:nth-child(3) {
+            width: 250px;
+            height: 250px;
+            background: #0066ff;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: floatGlow 12s ease-in-out infinite;
+            opacity: 0.1;
+        }
+
+        .grid-lines {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: 1;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(60px); }
+        }
+
+        @keyframes floatGlow {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+
+        .exhibition-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .exhibition-hero-content .hero-badge {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.12);
+            color: #00d4ff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 6px 24px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .exhibition-hero-content h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+
+        .exhibition-hero-content h1 span {
+            background: linear-gradient(135deg, #00d4ff, #0066ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .exhibition-hero-content p {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 650px;
+            margin: 0 auto 24px;
+        }
+
+        .exhibition-hero-content .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .exhibition-hero-content .hero-buttons .primary-btn {
+            background: linear-gradient(135deg, #00d4ff, #0066ff) !important;
+        }
+
+        .exhibition-hero-content .hero-buttons .secondary-btn {
+            background: transparent !important;
+            color: #fff !important;
+            border: 2px solid rgba(255, 255, 255, 0.2) !important;
+            box-shadow: none !important;
+        }
+
+        .exhibition-hero-content .hero-buttons .secondary-btn:hover {
+            background: rgba(255, 255, 255, 0.08) !important;
+            border-color: #00d4ff !important;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.85rem;
+            margin-top: 24px;
+        }
+
+        .breadcrumb a {
+            color: #00d4ff;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #0066ff;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .scroll-indicator span {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.15);
+            position: relative;
+        }
+
+        .scroll-line span {
+            position: absolute;
+            top: 0;
+            left: -1px;
+            width: 3px;
+            height: 10px;
+            background: #00d4ff;
+            border-radius: 4px;
+            animation: scrollMove 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollMove {
+            0%, 100% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(30px); opacity: 0.3; }
+        }
+
+        /* ===== SECTION 2: ABOUT EXHIBITIONS ===== */
+        .about-exhibitions {
+            background: #ffffff;
+            padding: 80px 0;
+        }
+
+        .about-exhibitions-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-exhibitions-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #0b1a2e;
+            margin-bottom: 16px;
+        }
+
+        .about-exhibitions-content h2 span {
+            background: linear-gradient(135deg, #00d4ff, #0066ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-exhibitions-content p {
+            color: #475569;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .exhibition-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .exhibition-stat {
+            text-align: center;
+            padding: 16px;
+            background: #f8fafc;
+            border-radius: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .exhibition-stat h4 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #0066ff;
+        }
+
+        .exhibition-stat p {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin: 0;
+        }
+
+        .about-exhibitions-placeholder {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #0b1a2e, #1a2d4a);
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+        .about-exhibitions-placeholder i {
+            font-size: 4rem;
+            color: #00d4ff;
+            margin-bottom: 16px;
+        }
+
+        .about-exhibitions-placeholder span {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .about-exhibitions-placeholder small {
+            font-size: 0.9rem;
+            opacity: 0.6;
+            margin-top: 4px;
+        }
+
+        /* ===== SECTION 3: MASONRY GALLERY ===== */
+        .gallery-section {
+            background: #f8fafc;
+            padding: 80px 0;
+        }
+
+        .masonry-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 260px;
+            gap: 20px;
+        }
+
+        .masonry-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .masonry-item.large {
+            grid-column: span 2;
+            grid-row: span 2;
+            height: 540px;
+        }
+
+        .masonry-item.medium {
+            grid-column: span 2;
+            height: 260px;
+        }
+
+        .masonry-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .masonry-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .masonry-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent 40%, rgba(0, 0, 0, 0.7));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 24px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .masonry-item:hover .masonry-overlay {
+            opacity: 1;
+        }
+
+        .masonry-overlay h4 {
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+        }
+
+        .masonry-item:hover .masonry-overlay h4 {
+            transform: translateY(0);
+        }
+
+        .masonry-overlay p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85rem;
+            transform: translateY(20px);
+            transition: transform 0.4s ease 0.08s;
+        }
+
+        .masonry-item:hover .masonry-overlay p {
+            transform: translateY(0);
+        }
+
+        .gallery-tag {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: linear-gradient(135deg, #00d4ff, #0066ff);
+            color: #fff;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ===== SECTION 4: EXHIBITION DETAILS ===== */
+        .exhibition-details {
+            background: #ffffff;
+            padding: 80px 0;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .detail-card {
+            background: #f8fafc;
+            padding: 28px 24px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.4s ease;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.08);
+            border-color: rgba(0, 102, 255, 0.15);
+        }
+
+        .detail-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .detail-header i {
+            font-size: 1.6rem;
+            color: #0066ff;
+        }
+
+        .detail-year {
+            background: rgba(0, 102, 255, 0.08);
+            color: #0066ff;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 16px;
+            border-radius: 20px;
+        }
+
+        .detail-card h3 {
+            font-size: 1.3rem;
+            color: #0b1a2e;
+            margin-bottom: 6px;
+        }
+
+        .detail-meta {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+
+        .detail-meta span {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        .detail-meta i {
+            margin-right: 4px;
+            color: #0066ff;
+        }
+
+        .detail-card p {
+            color: #475569;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .detail-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .detail-tags span {
+            background: rgba(0, 102, 255, 0.06);
+            color: #0066ff;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 3px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== SECTION 5: PRODUCT SHOWCASE ===== */
+        .product-showcase {
+            background: #f8fafc;
+            padding: 80px 0;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .showcase-card {
+            background: #ffffff;
+            padding: 32px 24px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.4s ease;
+        }
+
+        .showcase-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.08);
+            border-color: rgba(0, 102, 255, 0.15);
+        }
+
+        .showcase-icon {
+            font-size: 2.5rem;
+            color: #0066ff;
+            margin-bottom: 12px;
+        }
+
+        .showcase-card h3 {
+            font-size: 1.2rem;
+            color: #0b1a2e;
+            margin-bottom: 8px;
+        }
+
+        .showcase-card p {
+            color: #64748b;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .showcase-tag {
+            display: inline-block;
+            background: rgba(0, 102, 255, 0.08);
+            color: #0066ff;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 3px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== SECTION 6: FACTORY SHOWCASE ===== */
+        .factory-showcase {
+            background: #ffffff;
+            padding: 80px 0;
+        }
+
+        .factory-showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .factory-showcase-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            height: 260px;
+            cursor: pointer;
+        }
+
+        .factory-showcase-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .factory-showcase-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .factory-showcase-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent 40%, rgba(0, 0, 0, 0.7));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .factory-showcase-item:hover .factory-showcase-overlay {
+            opacity: 1;
+        }
+
+        .factory-showcase-overlay h4 {
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .factory-showcase-overlay p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.8rem;
+        }
+
+        /* ===== SECTION 7: EVENT VIDEO ===== */
+        .event-video-section {
+            background: #f8fafc;
+            padding: 80px 0;
+        }
+
+        .event-video-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .event-video-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #0b1a2e;
+            margin-bottom: 12px;
+        }
+
+        .event-video-content h2 span {
+            background: linear-gradient(135deg, #00d4ff, #0066ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .event-video-content p {
+            color: #475569;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .event-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .event-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #0b1a2e;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .event-feature i {
+            color: #0066ff;
+        }
+
+        .event-video-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+        }
+
+        .event-video-wrapper video {
+            width: 100%;
+            height: auto;
+            min-height: 320px;
+            display: block;
+            background: #000;
+        }
+
+        .event-video-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.4s ease;
+            cursor: pointer;
+        }
+
+        .event-video-play-btn {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        .event-video-play-btn i {
+            font-size: 2rem;
+            color: #00d4ff;
+            margin-left: 4px;
+        }
+
+        .event-video-overlay:hover .event-video-play-btn {
+            background: rgba(0, 212, 255, 0.2);
+            transform: scale(1.08);
+        }
+
+        .event-video-overlay span {
+            color: #fff;
+            font-size: 0.85rem;
+            margin-top: 14px;
+            font-weight: 500;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* ===== SECTION 8: PHOTO STORY ===== */
+        .photo-story {
+            background: #ffffff;
+            padding: 80px 0;
+        }
+
+        .photo-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .photo-timeline .timeline-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .photo-timeline .timeline-item:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-image {
+            border-radius: 16px;
+            overflow: hidden;
+            height: 200px;
+        }
+
+        .timeline-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .timeline-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .timeline-item .timeline-content h4 {
+            font-size: 0.85rem;
+            color: #0066ff;
+            font-weight: 700;
+        }
+
+        .timeline-item .timeline-content h3 {
+            font-size: 1.2rem;
+            color: #0b1a2e;
+            margin-bottom: 4px;
+        }
+
+        .timeline-item .timeline-content p {
+            color: #64748b;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ===== SECTION 9: SUCCESS HIGHLIGHTS ===== */
+        .success-highlights {
+            background: linear-gradient(135deg, #0b1a2e, #1a2d4a);
+            padding: 80px 0;
+        }
+
+        .success-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .success-card .success-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #00d4ff;
+            line-height: 1.2;
+        }
+
+        .success-card p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-top: 4px;
+        }
+
+        /* ===== SECTION 10: WHY EXHIBITIONS ===== */
+        .why-exhibitions {
+            background: #ffffff;
+            padding: 80px 0;
+        }
+
+        .why-exhibitions-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .why-exhibitions-card {
+            background: #f8fafc;
+            padding: 28px 20px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.4s ease;
+        }
+
+        .why-exhibitions-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.04);
+            border-color: rgba(0, 102, 255, 0.15);
+        }
+
+        .why-exhibitions-card i {
+            font-size: 2.5rem;
+            color: #0066ff;
+            margin-bottom: 12px;
+        }
+
+        .why-exhibitions-card h3 {
+            font-size: 1rem;
+            color: #0b1a2e;
+            margin-bottom: 4px;
+        }
+
+        .why-exhibitions-card p {
+            color: #64748b;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        /* ===== SECTION 11: FOOTER ===== */
+        footer {
+            background: #0b1a2e;
+            padding: 50px 0 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .footer-brand .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        .footer-brand .footer-logo i {
+            font-size: 1.6rem;
+            color: #00d4ff;
+        }
+        .footer-brand .footer-logo span {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #fff;
+        }
+        .footer-brand .footer-logo span span {
+            color: #00d4ff;
+        }
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+            line-height: 1.7;
+            max-width: 280px;
+        }
+        .footer-social {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+        }
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+            color: rgba(255, 255, 255, 0.5);
+            transition: all 0.4s ease;
+        }
+        .footer-social a:hover {
+            background: linear-gradient(135deg, #00d4ff, #0066ff);
+            color: #fff;
+            transform: translateY(-4px);
+        }
+        .footer-grid h4 {
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+        .footer-grid ul li {
+            margin-bottom: 8px;
+        }
+        .footer-grid ul li a {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+        .footer-grid ul li a:hover {
+            color: #00d4ff;
+        }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+        }
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.8rem;
+        }
+        .footer-bottom-links {
+            display: flex;
+            gap: 20px;
+        }
+        .footer-bottom-links a {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.8rem;
+            transition: color 0.3s ease;
+        }
+        .footer-bottom-links a:hover {
+            color: #00d4ff;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .exhibition-hero-content h1 { font-size: 3.5rem; }
+            .about-exhibitions-grid { grid-template-columns: 1fr; gap: 40px; }
+            .masonry-gallery { grid-template-columns: repeat(2, 1fr); }
+            .masonry-item.large { grid-column: span 1; grid-row: span 1; height: 260px; }
+            .masonry-item.medium { grid-column: span 1; }
+            .details-grid { grid-template-columns: 1fr; }
+            .showcase-grid { grid-template-columns: repeat(2, 1fr); }
+            .factory-showcase-grid { grid-template-columns: repeat(2, 1fr); }
+            .event-video-grid { grid-template-columns: 1fr; gap: 30px; }
+            .success-grid { grid-template-columns: repeat(3, 1fr); }
+            .why-exhibitions-grid { grid-template-columns: repeat(2, 1fr); }
+            .photo-timeline .timeline-item { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+        }
+
+        @media (max-width: 768px) {
+            .exhibition-hero { min-height: 60vh; padding: 100px 0 40px; }
+            .exhibition-hero-content h1 { font-size: 2.5rem; }
+            .exhibition-hero-content p { font-size: 1rem; }
+            .exhibition-stats { grid-template-columns: 1fr 1fr; }
+            .masonry-gallery { grid-template-columns: 1fr; }
+            .showcase-grid { grid-template-columns: 1fr; }
+            .factory-showcase-grid { grid-template-columns: 1fr; }
+            .success-grid { grid-template-columns: 1fr 1fr; }
+            .why-exhibitions-grid { grid-template-columns: 1fr; }
+            .event-features { grid-template-columns: 1fr; }
+            .exhibition-hero-content .hero-buttons { flex-direction: column; align-items: center; }
+            .about-exhibitions-placeholder { height: 250px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 0 14px; }
+            .exhibition-hero-content h1 { font-size: 2rem; }
+            .exhibition-stats { grid-template-columns: 1fr; }
+            .success-grid { grid-template-columns: 1fr; }
+            .event-video-wrapper video { min-height: 200px; }
+            .masonry-item { height: 200px; }
+            .masonry-item.large { height: 200px; }
+            .detail-meta { flex-direction: column; gap: 4px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- ==================== PRELOADER ==================== -->
+    <div class="preloader" id="preloader">
+        <div class="loader-container">
+            <div class="loader-ring">
+                <div class="loader-ring-inner"></div>
+                <div class="loader-ring-inner-2"></div>
+                <div class="loader-center-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+            </div>
+            <p class="loader-text">RAYS Global Energy</p>
+            <p class="loader-sub">Innovation on Display</p>
+        </div>
+    </div>
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <span class="logo-text">RAYS <span>Energy</span></span>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown-parent">
+                    <a href="about.html">About</a> <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    <ul class="dropdown">
+                        <li><a href="about.html#story">Our Story</a></li>
+                        <li><a href="about.html#mission">Mission & Vision</a></li>
+                        <li><a href="about.html#values">Core Values</a></li>
+                        <li><a href="about.html#manufacturing">Manufacturing</a></li>
+                    </ul>
+                </li>
+                <li><a href="exhibition.html" class="active">Exhibitions</a></li>
+                <li><a href="index.html#products">Products</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="index.html#videos">Videos</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="index.html#contact" class="btn nav-quote">Get Quote</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="exhibition-hero">
+        <div class="exhibition-hero-bg">
+            <div class="glow-orb"></div>
+            <div class="glow-orb"></div>
+            <div class="glow-orb"></div>
+            <div class="grid-lines"></div>
+        </div>
+        <div class="exhibition-hero-content reveal">
+            <span class="hero-badge">RAYS Global Energy Pvt. Ltd.</span>
+            <h1>Innovation <span>on Display</span></h1>
+            <p>Showcasing our cutting-edge EV Battery and Smart Charging solutions at premier exhibitions across India — connecting with industry leaders, partners, and the future of mobility.</p>
+            <div class="hero-buttons">
+                <a href="#gallery" class="btn primary-btn">Explore Our Journey <i class="fas fa-arrow-right"></i></a>
+                <a href="#details" class="btn secondary-btn">Upcoming Exhibitions <i class="fas fa-calendar-alt"></i></a>
+            </div>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right" style="font-size:0.6rem;align-self:center;"></i>
+                <span>Exhibitions</span>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to Explore</span>
+            <div class="scroll-line"><span></span></div>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT EXHIBITIONS ==================== -->
+    <section class="about-exhibitions">
+        <div class="container">
+            <div class="about-exhibitions-grid reveal">
+                <div class="about-exhibitions-content">
+                    <span class="section-tag">Why We Exhibit</span>
+                    <h2>Showcasing <span>Innovation</span> Across India</h2>
+                    <p>At RAYS Global Energy, exhibitions are more than just events — they are powerful platforms where we demonstrate our commitment to advancing electric mobility and sustainable energy solutions.</p>
+                    <p>Through our participation in premier industry exhibitions, we connect with automotive leaders, technology partners, and forward-thinking customers who share our vision for a cleaner, smarter future.</p>
+                    <p>Our exhibition presence allows us to showcase our latest EV Battery technologies, demonstrate intelligent EV Charging solutions, and engage in meaningful conversations that shape the future of the industry.</p>
+                    <div class="exhibition-stats">
+                        <div class="exhibition-stat">
+                            <h4>25+</h4>
+                            <p>Exhibitions Participated</p>
+                        </div>
+                        <div class="exhibition-stat">
+                            <h4>10,000+</h4>
+                            <p>Visitors Engaged</p>
+                        </div>
+                        <div class="exhibition-stat">
+                            <h4>200+</h4>
+                            <p>Business Meetings</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-exhibitions-image">
+                    <div class="about-exhibitions-placeholder">
+                        <i class="fas fa-building"></i>
+                        <span>Exhibition Highlights</span>
+                        <small>Showcasing innovation since 2015</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== EXHIBITION GALLERY ==================== -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Exhibition Gallery</span>
+                <h2 class="section-title">Our <span>Journey</span> in Pictures</h2>
+                <p class="section-sub">Experience the energy, innovation, and connections made at our exhibitions across India.</p>
+            </div>
+            <div class="masonry-gallery reveal">
+                <div class="masonry-item large">
+                    <img src="assets/images/r8.jpeg" alt="RAYS Global Energy Exhibition" />
+                    <div class="masonry-overlay">
+                        <h4>Auto Expo 2025</h4>
+                        <p>Showcasing premium EV batteries</p>
+                        <span class="gallery-tag">Featured</span>
+                    </div>
+                </div>
+                <div class="masonry-item">
+                    <img src="assets/images/e10.jpeg" alt="EV Battery Display" />
+                    <div class="masonry-overlay">
+                        <h4>EV Battery Showcase</h4>
+                        <p>Advanced lithium technology</p>
+                    </div>
+                </div>
+                <div class="masonry-item">
+                    <img src="assets/images/e9.jpeg" alt="EV Charger Demonstration" />
+                    <div class="masonry-overlay">
+                        <h4>Smart Charging Demo</h4>
+                        <p>Intelligent EV charging solutions</p>
+                    </div>
+                </div>
+                <div class="masonry-item medium">
+                    <img src="assets/images/e7.jpeg" alt="Team at Exhibition" />
+                    <div class="masonry-overlay">
+                        <h4>Team RAYS in Action</h4>
+                        <p>Engaging with industry leaders</p>
+                    </div>
+                </div>
+                <div class="masonry-item">
+                    <img src="assets/images/e6.jpeg" alt="Product Display" />
+                    <div class="masonry-overlay">
+                        <h4>Product Showcase</h4>
+                        <p>Premium battery solutions</p>
+                    </div>
+                </div>
+                <div class="masonry-item">
+                    <img src="assets/images/e5.jpeg" alt="Customer Interaction" />
+                    <div class="masonry-overlay">
+                        <h4>Customer Engagement</h4>
+                        <p>Building lasting relationships</p>
+                    </div>
+                </div>
+                <div class="masonry-item large">
+                    <img src="assets/images/e2.jpeg" alt="Exhibition Booth" />
+                    <div class="masonry-overlay">
+                        <h4>Premium Exhibition Booth</h4>
+                        <p>Showcasing innovation and technology</p>
+                    </div>
+                </div>
+                <div class="masonry-item">
+                    <img src="assets/images/e1.jpeg" alt="Industry Networking" />
+                    <div class="masonry-overlay">
+                        <h4>Industry Networking</h4>
+                        <p>Connecting with partners</p>
+                    </div>
+                </div>
+                <div class="masonry-item">
+                    <img src="assets/images/e4.jpeg" alt="Technology Demonstration" />
+                    <div class="masonry-overlay">
+                        <h4>Tech Demonstration</h4>
+                        <p>Innovation in action</p>
+                    </div>
+                </div>
+                <div class="masonry-item medium">
+                    <img src="assets/images/e10.jpeg" alt="Exhibition Success" />
+                    <div class="masonry-overlay">
+                        <h4>Exhibition Success</h4>
+                        <p>Celebrating milestones</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== EXHIBITION DETAILS ==================== -->
+    <section class="exhibition-details" id="details">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Past & Upcoming</span>
+                <h2 class="section-title">Exhibition <span>Highlights</span></h2>
+                <p class="section-sub">Key exhibitions where we showcased our premium EV battery and charging solutions.</p>
+            </div>
+            <div class="details-grid reveal">
+                <div class="detail-card">
+                    <div class="detail-header">
+                        <i class="fas fa-calendar-check"></i>
+                        <span class="detail-year">2025</span>
+                    </div>
+                    <h3>Auto Expo India</h3>
+                    <div class="detail-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Greater Noida, UP</span>
+                        <span><i class="fas fa-calendar-alt"></i> January 2025</span>
+                    </div>
+                    <p>Showcased our premium EV Battery range and Smart Charging solutions at India's largest automotive exhibition. Engaged with 500+ industry professionals and established 50+ strategic partnerships.</p>
+                    <div class="detail-tags">
+                        <span>EV Batteries</span>
+                        <span>Smart Chargers</span>
+                        <span>Innovation</span>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-header">
+                        <i class="fas fa-calendar-check"></i>
+                        <span class="detail-year">2024</span>
+                    </div>
+                    <h3>EV India Expo</h3>
+                    <div class="detail-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Mumbai, Maharashtra</span>
+                        <span><i class="fas fa-calendar-alt"></i> November 2024</span>
+                    </div>
+                    <p>Demonstrated advanced lithium battery technology and intelligent EV charging solutions at India's premier electric vehicle exhibition. Hosted 300+ visitors and conducted 40+ business meetings.</p>
+                    <div class="detail-tags">
+                        <span>Lithium Technology</span>
+                        <span>Smart Charging</span>
+                        <span>Partnerships</span>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-header">
+                        <i class="fas fa-calendar-check"></i>
+                        <span class="detail-year">2024</span>
+                    </div>
+                    <h3>Energy Future Summit</h3>
+                    <div class="detail-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Delhi</span>
+                        <span><i class="fas fa-calendar-alt"></i> August 2024</span>
+                    </div>
+                    <p>Featured our sustainable energy solutions and eco-friendly battery technology at India's leading energy conference. Connected with 200+ industry leaders and sustainability advocates.</p>
+                    <div class="detail-tags">
+                        <span>Sustainability</span>
+                        <span>Green Energy</span>
+                        <span>Innovation</span>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-header">
+                        <i class="fas fa-calendar-check"></i>
+                        <span class="detail-year">2023</span>
+                    </div>
+                    <h3>International Battery Expo</h3>
+                    <div class="detail-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Chennai, Tamil Nadu</span>
+                        <span><i class="fas fa-calendar-alt"></i> March 2023</span>
+                    </div>
+                    <p>Presented our premium battery solutions and advanced energy storage systems at the International Battery Expo. Received recognition for innovation and quality excellence.</p>
+                    <div class="detail-tags">
+                        <span>Battery Technology</span>
+                        <span>Energy Storage</span>
+                        <span>Recognition</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PRODUCT SHOWCASE ==================== -->
+    <section class="product-showcase">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">What We Showcase</span>
+                <h2 class="section-title">Products on <span>Display</span></h2>
+                <p class="section-sub">Our premium EV solutions that capture attention at every exhibition.</p>
+            </div>
+            <div class="showcase-grid reveal">
+                <div class="showcase-card">
+                    <div class="showcase-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Smart EV Chargers</h3>
+                    <p>Intelligent charging solutions with IoT connectivity, advanced safety features, and battery care technology — designed for residential and commercial applications.</p>
+                    <span class="showcase-tag">Featured Product</span>
+                </div>
+                <div class="showcase-card">
+                    <div class="showcase-icon"><i class="fas fa-battery-full"></i></div>
+                    <h3>EV Lithium Batteries</h3>
+                    <p>High-performance lithium batteries with superior energy density, 2000+ cycle life, and advanced thermal management for demanding EV applications.</p>
+                    <span class="showcase-tag">Premium Range</span>
+                </div>
+                <div class="showcase-card">
+                    <div class="showcase-icon"><i class="fas fa-microchip"></i></div>
+                    <h3>Advanced Energy Solutions</h3>
+                    <p>Innovative energy storage systems, battery management solutions, and smart grid integration technologies for sustainable energy ecosystems.</p>
+                    <span class="showcase-tag">Innovation</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FACTORY & EVENT SHOWCASE ==================== -->
+    <section class="factory-showcase">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Behind the Scenes</span>
+                <h2 class="section-title">Factory &amp; Event <span>Showcase</span></h2>
+                <p class="section-sub">A glimpse into our manufacturing excellence and exhibition journey.</p>
+            </div>
+            <div class="factory-showcase-grid reveal">
+                <div class="factory-showcase-item">
+                    <img src="assets/images/e10.jpeg" alt="Factory Production" />
+                    <div class="factory-showcase-overlay">
+                        <h4>Production Excellence</h4>
+                        <p>State-of-the-art manufacturing facility</p>
+                    </div>
+                </div>
+                <div class="factory-showcase-item">
+                    <img src="assets/images/e6.jpeg" alt="Quality Control" />
+                    <div class="factory-showcase-overlay">
+                        <h4>Quality Assurance</h4>
+                        <p>Rigorous testing and quality control</p>
+                    </div>
+                </div>
+                <div class="factory-showcase-item">
+                    <img src="assets/images/e3.jpeg" alt="Exhibition Booth" />
+                    <div class="factory-showcase-overlay">
+                        <h4>Exhibition Booth</h4>
+                        <p>Premium exhibition presence</p>
+                    </div>
+                </div>
+                <div class="factory-showcase-item">
+                    <img src="assets/images/e4.jpeg" alt="Team" />
+                    <div class="factory-showcase-overlay">
+                        <h4>Team RAYS</h4>
+                        <p>Dedicated professionals, exceptional service</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== EVENT VIDEO ==================== -->
+    <section class="event-video-section">
+        <div class="container">
+            <div class="event-video-grid reveal">
+                <div class="event-video-content">
+                    <span class="section-tag">Exhibition Highlights</span>
+                    <h2>Watch Our <span>Exhibition</span> Journey</h2>
+                    <p>Experience the energy, innovation, and connections that define our exhibition presence. From product demonstrations to industry networking — see how we showcase the future of electric mobility.</p>
+                    <div class="event-features">
+                        <div class="event-feature"><i class="fas fa-check-circle"></i> Product Demonstrations</div>
+                        <div class="event-feature"><i class="fas fa-check-circle"></i> Industry Networking</div>
+                        <div class="event-feature"><i class="fas fa-check-circle"></i> Customer Engagement</div>
+                        <div class="event-feature"><i class="fas fa-check-circle"></i> Technology Showcase</div>
+                    </div>
+                </div>
+                <div class="event-video-wrapper">
+                    <video autoplay muted loop playsinline>
+                        <source src="assets/video/v1.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="event-video-overlay">
+                        <div class="event-video-play-btn"><i class="fas fa-play"></i></div>
+                        <span>Exhibition Highlights</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PHOTO STORY ==================== -->
+    <section class="photo-story">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Photo Story</span>
+                <h2 class="section-title">Our <span>Exhibition</span> Journey</h2>
+                <p class="section-sub">A visual timeline of our exhibition milestones, capturing moments of innovation and connection.</p>
+            </div>
+            <div class="photo-timeline reveal">
+                <div class="timeline-item">
+                    <div class="timeline-image">
+                        <img src="assets/images/e7.jpeg" alt="First Exhibition" />
+                    </div>
+                    <div class="timeline-content">
+                        <h4>2015</h4>
+                        <h3>First Exhibition</h3>
+                        <p>Our debut at the Indian Auto Expo, showcasing our first EV battery solutions to the industry.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-image">
+                        <img src="assets/images/e5.jpeg" alt="Growing Presence" />
+                    </div>
+                    <div class="timeline-content">
+                        <h4>2018</h4>
+                        <h3>Growing Presence</h3>
+                        <p>Expanded our exhibition footprint to multiple cities, connecting with a wider audience.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-image">
+                        <img src="assets/images/e2.jpeg" alt="Premium Showcase" />
+                    </div>
+                    <div class="timeline-content">
+                        <h4>2022</h4>
+                        <h3>Premium Showcase</h3>
+                        <p>Launched our premium exhibition booth experience with interactive product displays.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-image">
+                        <img src="assets/images/e10.jpeg" alt="Industry Leadership" />
+                    </div>
+                    <div class="timeline-content">
+                        <h4>2025</h4>
+                        <h3>Industry Leadership</h3>
+                        <p>Recognized as a premier EV battery and charger manufacturer at leading industry exhibitions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SUCCESS HIGHLIGHTS ==================== -->
+    <section class="success-highlights">
+        <div class="container">
+            <div class="success-grid reveal">
+                <div class="success-card">
+                    <div class="success-number" data-target="25000">0</div>
+                    <p>Visitors Engaged</p>
+                </div>
+                <div class="success-card">
+                    <div class="success-number" data-target="500">0</div>
+                    <p>Business Meetings</p>
+                </div>
+                <div class="success-card">
+                    <div class="success-number" data-target="15">0</div>
+                    <p>Products Showcased</p>
+                </div>
+                <div class="success-card">
+                    <div class="success-number" data-target="100">0</div>
+                    <p>+ Partnerships</p>
+                </div>
+                <div class="success-card">
+                    <div class="success-number" data-target="95">0</div>
+                    <p>% Customer Engagement</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== WHY EXHIBITIONS MATTER ==================== -->
+    <section class="why-exhibitions">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Why It Matters</span>
+                <h2 class="section-title">The Power of <span>Exhibitions</span></h2>
+                <p class="section-sub">How exhibitions drive innovation, build trust, and shape the future of electric mobility.</p>
+            </div>
+            <div class="why-exhibitions-grid reveal">
+                <div class="why-exhibitions-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Showcasing Innovation</h3>
+                    <p>Exhibitions provide the perfect platform to demonstrate our latest EV battery and charging technologies to industry leaders, partners, and customers.</p>
+                </div>
+                <div class="why-exhibitions-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Building Relationships</h3>
+                    <p>Face-to-face interactions at exhibitions help us build lasting relationships with customers, partners, and industry stakeholders.</p>
+                </div>
+                <div class="why-exhibitions-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Business Growth</h3>
+                    <p>Exhibitions drive business growth by connecting us with new customers, partners, and opportunities in the EV ecosystem.</p>
+                </div>
+                <div class="why-exhibitions-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Industry Presence</h3>
+                    <p>Our exhibition presence establishes RAYS Global Energy as a trusted leader in the EV battery and charging industry.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <i class="fas fa-bolt"></i>
+                    <span>RAYS <span>Energy</span></span>
+                </div>
+                <p>RAYS Global Energy Pvt. Ltd. — Powering the future of electric mobility with premium EV batteries and smart charging solutions.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="index.html#products">EV Lithium Batteries</a></li>
+                    <li><a href="index.html#products">Smart EV Chargers</a></li>
+                    <li><a href="index.html#products">Industrial Batteries</a></li>
+                    <li><a href="index.html#products">Energy Storage Systems</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="exhibition.html">Exhibitions</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Technical Support</a></li>
+                    <li><a href="#">Downloads</a></li>
+                    <li><a href="#">Warranty Policy</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 RAYS Global Energy Pvt. Ltd. All Rights Reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ==================== EXHIBITION PAGE JAVASCRIPT ====================
+
+        // ===== PRELOADER =====
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.classList.add('hidden');
+            }, 1500);
+        });
+
+        // ===== NAVBAR SCROLL =====
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // ===== HAMBURGER MENU =====
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.dropdown-parent').forEach(parent => {
+            parent.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    parent.classList.toggle('active-dropdown');
+                }
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav') && window.innerWidth <= 768) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+                document.querySelectorAll('.dropdown-parent').forEach(p => {
+                    p.classList.remove('active-dropdown');
+                });
+            }
+        });
+
+        // ===== SCROLL REVEAL =====
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.12 });
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // ===== SUCCESS COUNTER ANIMATION =====
+        const successNumbers = document.querySelectorAll('.success-number');
+        const successObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.dataset.target);
+                    let current = 0;
+                    const step = Math.ceil(target / 50);
+                    const interval = setInterval(() => {
+                        current += step;
+                        if (current >= target) {
+                            el.textContent = target + '+';
+                            clearInterval(interval);
+                        } else {
+                            el.textContent = current + '+';
+                        }
+                    }, 25);
+                    successObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.3 });
+        successNumbers.forEach(el => successObserver.observe(el));
+
+        // ===== VIDEO PLAY/PAUSE =====
+        const videoWrappers = document.querySelectorAll('.event-video-wrapper');
+        videoWrappers.forEach(wrapper => {
+            const video = wrapper.querySelector('video');
+            const overlay = wrapper.querySelector('.event-video-overlay');
+            
+            if (video && overlay) {
+                overlay.addEventListener('click', () => {
+                    if (video.paused) {
+                        video.play();
+                        overlay.style.opacity = '0';
+                        overlay.style.pointerEvents = 'none';
+                    } else {
+                        video.pause();
+                        overlay.style.opacity = '1';
+                        overlay.style.pointerEvents = 'auto';
+                    }
+                });
+                
+                video.addEventListener('play', () => {
+                    overlay.style.opacity = '0';
+                    overlay.style.pointerEvents = 'none';
+                });
+                
+                video.addEventListener('pause', () => {
+                    overlay.style.opacity = '1';
+                    overlay.style.pointerEvents = 'auto';
+                });
+            }
+        });
+
+        // ===== VIDEO AUTOPLAY LOOP FIX =====
+        document.addEventListener('DOMContentLoaded', function() {
+            const allVideos = document.querySelectorAll('video');
+            allVideos.forEach(video => {
+                video.setAttribute('autoplay', '');
+                video.setAttribute('muted', '');
+                video.setAttribute('loop', '');
+                video.setAttribute('playsinline', '');
+                video.play().catch(() => {
+                    document.addEventListener('click', function playVideo() {
+                        video.play();
+                        document.removeEventListener('click', playVideo);
+                    }, { once: true });
+                });
+                video.addEventListener('ended', function() {
+                    this.currentTime = 0;
+                    this.play();
+                });
+            });
+        });
+
+        // ===== SMOOTH SCROLL FOR DROPDOWN LINKS =====
+        document.querySelectorAll('.dropdown a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId !== '#') {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const navHeight = navbar.offsetHeight;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        // ===== FORCE PLAY ON ANY CLICK (FOR MOBILE) =====
+        document.addEventListener('click', function() {
+            const videos = document.querySelectorAll('video');
+            videos.forEach(video => {
+                if (video.paused) {
+                    video.play().catch(e => console.log('Play failed'));
+                }
+            });
+        }, { once: false });
+    </script>
+</body>
+</html>
